@@ -177,19 +177,41 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                             </div>
 
                             <div class="container pb30 pt15">
-                                <div class="row">
-                                    <?php foreach ($servico->db->data as $s): ?>
-                                        <div class="col-sm-4">
-                                            <article class="boxIcon">
-                                                <a href="javascript:void(0);" style="cursor:default">
-                                                    <i class="<?= stripslashes($s->servico_icon) ?> iconBig iconRounded"></i>
-                                                    <h2><?= stripslashes($s->servico_nome) ?></h2>
-                                                    <p><?= stripslashes($s->servico_descricao) ?></p>
-                                                </a>
-                                            </article>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
+                                <div class="row" align="center">
+								<h2><script>
+
+								//change the text below to reflect your own,
+								var before=" o nosso grande dia!"
+								var current="Hoje é o nosso casamento!"
+								var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+								var ano="2018"
+								var mes="09"
+								var dia="15"
+
+								function countdown(yr,m,d){
+								var today=new Date()
+								var todayy=today.getYear()
+								if (todayy < 1000)
+								todayy+=1900
+								var todaym=today.getMonth()
+								var todayd=today.getDate()
+								var todaystring=montharray[todaym]+" "+todayd+", "+todayy
+								var futurestring=montharray[m-1]+" "+d+", "+yr
+								var difference=(Math.round((Date.parse(futurestring)-Date.parse(todaystring))/(24*60*60*1000))*1)
+								var dstring=difference.toString()
+								if (difference==0)
+								document.write(current)
+								else if (difference>0){
+								document.write("Faltam ")
+								for (i=0;i<=dstring.length-1;i++)
+								document.write('<img src="images/numeros/c'+dstring.charAt(i)+'.png">')
+								document.write(' dias para '+before)
+								}
+								}
+								//enter the count down date using the format year/month/day
+								countdown(ano,mes,dia)
+								</script>  </h2>                             
+								</div>
                             </div>
                         </section>
                     <?php endif; ?>
