@@ -50,7 +50,7 @@
                 <?php endif; ?>
 					<li class="sep"></li>
                     <li class="primary"> 
-                        <a href="equipe/" class="firstLevel last" id="equipe">Equipe</a>
+                        <a href="equipe/" class="firstLevel last" id="equipe">Padrinhos</a>
                     </li>
 
             </ul>
