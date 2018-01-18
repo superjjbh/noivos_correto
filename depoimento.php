@@ -164,7 +164,7 @@ $pagina->getPagina();
                                                 <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><input type="file" id="depoimento_imagem" name="depoimento_imagem"></span>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" type="submit" name="submitComment">Enviar</button>
+                                        <button class="btn btn-primary" type="submit">Cadastrar</button>
                                         <input type="hidden" name="depoimento_status" value="0">
                                     </form>
                                     <?php endif; ?>
