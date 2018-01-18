@@ -8,11 +8,11 @@ if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
 $site = new Site();
 $site->getMeta();
 
-$cliente_id = intval($_GET['id']);
-$cliente = new Cliente();
-$cliente->cliente_id = $cliente_id;
-//$cliente->db = new DB;
-$cliente->getCliente();
+$cliente2_id = intval($_GET['id']);
+$cliente2 = new Cliente2();
+$cliente2->cliente2_id = $cliente2_id;
+//$cliente2->db = new DB;
+$cliente2->getCliente2();
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -91,7 +91,7 @@ $cliente->getCliente();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Equipe</span></h2>
+                    <h2><i class="fa fa-users"></i>  <span>Padrinhos</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -101,7 +101,7 @@ $cliente->getCliente();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Equipe</a>
+                                <a href="#">Padrinhos</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -117,27 +117,22 @@ $cliente->getCliente();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Membro</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Padrinho/Madrinha</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
-                                    <form enctype="multipart/form-data" method="post" action="cliente_fn.php?acao=atualizar">
+                                    <form enctype="multipart/form-data" method="post" action="cliente2_fn.php?acao=atualizar">
                                         <div class="form-body">
 
                                             <div class="form-group">
                                                 <label class="control-label">Nome</label>
-                                                <input class="form-control rounded" type="text" id="cliente_nome"  name="cliente_nome" required value="<?= stripslashes($cliente->cliente_nome) ?>" />
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="control-label">Cargo</label>
-                                                <input class="form-control rounded" type="text" id="cliente_subtitulo"  name="cliente_subtitulo" value="<?= stripslashes($cliente->cliente_subtitulo) ?>" />
+                                                <input class="form-control rounded" type="text" id="cliente2_nome"  name="cliente2_nome" required value="<?= stripslashes($cliente2->cliente2_nome) ?>" />
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="control-label">Sobre (No máximo 200 caracteres)</label>
-                                                <textarea class="form-control rounded" type="text"  name="cliente_descricao" data-ls-module="charCounter" maxlength="200"><?= stripslashes($cliente->cliente_descricao) ?></textarea>
-                                                <input type="hidden" id="cliente_id"  name="cliente_id" value="<?= $cliente->cliente_id ?>">
+                                                <textarea class="form-control rounded" type="text"  name="cliente2_descricao" data-ls-module="charCounter" maxlength="200"><?= stripslashes($cliente2->cliente2_descricao) ?></textarea>
+                                                <input type="hidden" id="cliente2_id"  name="cliente2_id" value="<?= $cliente2->cliente2_id ?>">
                                             </div>
 
 
@@ -145,7 +140,7 @@ $cliente->getCliente();
                                                 <label class="control-label">Foto</label>
                                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                                     <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="cliente_imagem" name="cliente_imagem"></span>
+                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="cliente2_imagem" name="cliente2_imagem"></span>
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
                                                 </div>
                                             </div>

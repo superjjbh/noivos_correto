@@ -91,7 +91,7 @@ $area->getAreas();
             <section id="page-content">
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i> <span>Membros Cadastrados</span></h2>
+                    <h2><i class="fa fa-users"></i> <span>Pais Cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -101,7 +101,7 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Equipes</a>
+                                <a href="#">Nossos Pais</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -125,7 +125,7 @@ $area->getAreas();
                                             <div class="media">
                                                 <div class="media-body text-center">
                                                     <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->cliente_nome) ?> </h4>
-                                                    <span class="text-capitalize"> Cargo: <?= stripslashes($listar->cliente_subtitulo) ?></span>
+                                                    <span class="text-capitalize"> Pai/Mãe de: <?= stripslashes($listar->cliente_subtitulo) ?></span>
                                                 </div>
                                             </div>
                                         </div>

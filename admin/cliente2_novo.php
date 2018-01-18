@@ -88,7 +88,7 @@ $area->getAreas();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Equipe</span></h2>
+                    <h2><i class="fa fa-users"></i>  <span>Padrinhos</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -98,7 +98,7 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Equipe</a>
+                                <a href="#">Padrinhos</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -114,33 +114,28 @@ $area->getAreas();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Membro</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Padrinho/Madrinha</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
-                                    <form enctype="multipart/form-data" method="post" action="cliente_fn.php?acao=incluir">
+                                    <form enctype="multipart/form-data" method="post" action="cliente2_fn.php?acao=incluir">
                                         <div class="form-body">
 
                                             <div class="form-group">
                                                 <label class="control-label">Nome</label>
-                                                <input class="form-control rounded" type="text" id="cliente_nome"  name="cliente_nome" required />
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="control-label">Cargo</label>
-                                                <input class="form-control rounded" type="text" id="cliente_subtitulo"  name="cliente_subtitulo" />
+                                                <input class="form-control rounded" type="text" id="cliente2_nome"  name="cliente2_nome" required />
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="control-label">Sobre</label>
-                                                <textarea class="form-control rounded" type="text"  name="cliente_descricao"></textarea>
+                                                <textarea class="form-control rounded" type="text"  name="cliente2_descricao"></textarea>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="control-label">Foto</label>
                                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                                     <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="cliente_imagem" name="cliente_imagem"></span>
+                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="cliente2_imagem" name="cliente2_imagem"></span>
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
                                                 </div>
                                             </div>

@@ -61,47 +61,47 @@ $status0 = new Comment();
         <li class="submenu clientenovo listar">
             <a href="javascript:void(0);">
                 <span class="icon"><i class="fa fa-users"></i></span>
-                <span class="text">Equipe</span>
+                <span class="text">Nossos Pais</span>
                 <span class="arrow"></span>
             </a>
             <ul>
-                <li class="clientenovo"><a href="equipe/novo/">Novo Membro</a></li>
-                <li class="listar"><a href="equipe/">Listar Membros</a></li>
+                <li class="clientenovo"><a href="equipe/novo/">Novo Pai/Mãe</a></li>
+                <li class="listar"><a href="equipe/">Listar Pais</a></li>
             </ul>
         </li>
-        <li class="submenu serviconovo listarservico servicoeditar">
+        <li class="submenu clientenovo listar">
             <a href="javascript:void(0);">
-                <span class="icon"><i class="fa fa-pencil"></i></span>
-                <span class="text">Destaques</span>
+                <span class="icon"><i class="fa fa-users"></i></span>
+                <span class="text">Nossos Padrinhos</span>
                 <span class="arrow"></span>
             </a>
             <ul>
-                <li class="serviconovo"><a href="servico/novo/">Novo Destaque</a></li>
-                <li class="listarservico"><a href="servico/">Listar Destaques</a></li>
+                <li class="clientenovo"><a href="padrinho/novo/">Novo Padrinho/Madrinha</a></li>
+                <li class="listar"><a href="padrinho/">Listar Padrinhos</a></li>
             </ul>
         </li>
         <li class="submenu blognovo listarblog categoria blogeditar comentario">
             <a href="javascript:void(0);">
-                <span class="icon"><i class="fa fa-wrench"></i></span>
-                <span class="text">Serviços</span>
+                <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+                <span class="text">Lista de Presentes</span>
                 <span class="arrow"></span>
             </a>
             <ul>
-                <li class="blognovo"><a href="post/novo/">Novo Serviço</a></li>
-                <li class="listarblog"><a href="posts/">Listar Serviços</a></li>
+                <li class="blognovo"><a href="post/novo/">Novo Presente</a></li>
+                <li class="listarblog"><a href="posts/">Listar Presentes</a></li>
                 <li class="categoria"><a href="categoria/post/">Gerenciar Categoria</a></li>
             </ul>
         </li>
 
         <li class="submenu portfoliognovo listarportfolio portfoliocategoria portfolioeditar">
             <a href="javascript:void(0);">
-                <span class="icon"><i class="fa fa-suitcase"></i></span>
-                <span class="text">Portfólio</span>
+                <span class="icon"><i class="fa fa-picture-o"></i></span>
+                <span class="text">Álbum de Fotos</span>
                 <span class="arrow"></span>
             </a>
             <ul>
-                <li class="portfoliognovo"><a href="portfolio/novo/">Novo Projeto</a></li>
-                <li class="listarportfolio"><a href="portfolio/">Listar Projetos</a></li>
+                <li class="portfoliognovo"><a href="portfolio/novo/">Nova Foto</a></li>
+                <li class="listarportfolio"><a href="portfolio/">Listar Fotos</a></li>
                 <li class="portfoliocategoria"><a href="categoria/portfolio/">Gerenciar Categoria</a></li>
 
             </ul>
@@ -119,7 +119,7 @@ $status0 = new Comment();
         <li id="seo">
             <a href="seo/">
                 <span class="icon"><i class="fa fa-globe"></i></span>
-                <span class="text">SEO </span>
+                <span class="text">Dados do Site </span>
             </a>
         </li>
         <li id="social">

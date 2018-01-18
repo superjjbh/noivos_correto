@@ -88,7 +88,7 @@ $area->getAreas();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Equipe</span></h2>
+                    <h2><i class="fa fa-users"></i>  <span>Nossos Pais</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -98,7 +98,7 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Equipe</a>
+                                <a href="#">Nossos Pais</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -114,7 +114,7 @@ $area->getAreas();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Membro</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Pai/Mãe</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
@@ -127,7 +127,7 @@ $area->getAreas();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Cargo</label>
+                                                <label class="control-label">Pai/Mãe de</label>
                                                 <input class="form-control rounded" type="text" id="cliente_subtitulo"  name="cliente_subtitulo" />
                                             </div>
 

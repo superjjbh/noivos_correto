@@ -130,7 +130,7 @@ $editar->getDepoimento();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Empresa</label>
+                                                <label class="control-label">Parentesco</label>
                                                 <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo" value="<?= stripslashes($editar->depoimento_cargo) ?>" />
                                             </div>
 
