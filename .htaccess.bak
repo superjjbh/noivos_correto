@@ -30,6 +30,8 @@ RewriteRule ^projetos([a-zA-Z0-9-_/]+)/?$ portfolios.php?pg=$1 [L,QSA]
 RewriteRule ^resultado([a-zA-Z0-9-_/]+)/?$ busca.php?pg=$1 [L,QSA]
 RewriteRule ^contato([a-zA-Z0-9-_/]+)/?$ contato.php?pg=$1 [L,QSA]
 RewriteRule ^sobre([a-zA-Z0-9-_/]+)/?$ sobre.php?pg=$1 [L,QSA]
+RewriteRule ^equipe([a-zA-Z0-9-_/]+)/?$ equipe.php?pg=$1 [L,QSA]
+
 
 #admin
 RewriteRule ^admin/home([a-zA-Z0-9-_/]+)/?$ admin/index.php?pg=$1 [L,QSA]
