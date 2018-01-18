@@ -10,7 +10,7 @@ $site->getMeta();
 
 $clientes2 = new Cliente2();
 $clientes2->db = new DB;
-$clientes2->db->url = "padrinhos";
+$clientes2->db->url = "padrinho";
 $clientes2->db->paginate(12);
 $clientes2->getClientes2();
 
@@ -134,7 +134,7 @@ $area->getAreas();
                                                 <a class="btn btn-circle btn-info atualizar"  href="padrinho/editar/<?= $listar->cliente2_id ?>/">
                                                     <i class="fa fa-edit icon-white"></i>
                                                 </a>
-                                                <a class="btn btn-circle btn-danger delete" data-url="cliente_fn.php?acao=remover&AMP;id=<?= $listar->cliente2_id ?>">
+                                                <a class="btn btn-circle btn-danger delete" data-url="cliente2_fn.php?acao=remover&AMP;id=<?= $listar->cliente2_id ?>">
                                                     <i class="fa fa-trash icon-white"></i>
                                                 </a>
                                             </div>

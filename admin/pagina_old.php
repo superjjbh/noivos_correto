@@ -8,6 +8,7 @@ if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
 $site = new Site();
 $site->getMeta();
 
+
 $pagina = new Pagina();
 $pagina->db = new DB;
 $pagina->db->url = "posts";
@@ -15,6 +16,7 @@ $pagina->db->paginate(24);
 $pagina->getPosts();
 
 $area = new Area();
+$area->db = new DB;
 $area->getAreas();
 ?>
 <!DOCTYPE html>
@@ -78,6 +80,7 @@ $area->getAreas();
 
         <!-- START @WRAPPER -->
         <section id="wrapper" class="page-sound">
+
             <!-- START @HEADER -->
             <?php require_once './navegacao.php'; ?> <!-- /#header -->
             <!-- /#header -->
@@ -89,15 +92,16 @@ $area->getAreas();
 
             <!-- START @PAGE CONTENT -->
             <section id="page-content">
+
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i> <span>Presentes cadastrados</span></h2>
+                    <h2><i class="fa fa-pencil"></i> <span>Presentes cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-home"></i>
-                                <a href="home/">Dashboard</a>
+                                <a href="index.php">Dashboard</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
@@ -111,26 +115,45 @@ $area->getAreas();
 
                 <!-- Start body content -->
                 <div class="body-content animated fadeIn">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <button class="filter btn btn-primary btn-sm" data-filter="all">Todas</button>
+                                <?php if (isset($area->db->data[0])): ?>
+                                    <?php foreach ($area->db->data as $cat): ?>
+                                        <button class="filter btn btn-primary btn-sm" data-filter=".<?= Filter::slug2($cat->area_nome) ?>" ><?= $cat->area_nome ?></button>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
                     <ul class="col-md-12 row">
                         <?php if (isset($pagina->db->data[0])): ?>
                             <?php foreach ($pagina->db->data as $listar): ?>
-                                <li class="col-md-3">
+                                <li class="mix <?= Filter::slug2($listar->area_nome) ?>">
                                     <div class="gallery-item rounded shadow">
                                         <span class="gallery-love">
                                             <i class="fa fa-heart-o"></i>
                                         </span>
-                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=300&zc=1&src=../images/blog/<?= $listar->pagina_imagem ?>" class="img-responsive full-width" alt="..." /></a>
+                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=250&zc=0&src=../images/blog/<?= $listar->pagina_imagem ?>" class="img-responsive full-width" alt="..." /></a>
                                         <br />
                                         <div class="gallery-author">
                                             <div class="media">
-                                                <div class="media-body text-center">
-                                                    <h4 class="media-heading text-capitalize">Presente: <?= stripslashes($listar->pagina_nome) ?> </h4>
-                                                    <span class="text-capitalize"> Valor: <?= stripslashes($listar->pagina_autor) ?></span>
-													<p><h4 class="media-heading text-capitalize">Em <?= stripslashes($listar->area_nome)?></h4></p>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading text-capitalize">Presente: <?= stripslashes($listar->pagina_nome)?></h4>
+                                                    <span class="text-capitalize">Valor: <?= stripslashes($listar->pagina_autor)?></span>
+                                                    <p><h4 class="media-heading text-capitalize">Em <?= stripslashes($listar->area_nome)?></h4></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="gallery-details">
+                                            <div class="gallery-summary">
+                                                <p><?= Validacao::cut(stripslashes($listar->pagina_descricao), 200, '...') ?></p>
+                                            </div>
+                                            <hr>
                                             <div class="text-center">
                                                 <?php if (isset($listar->comentario_pagina)): ?>
                                                     <a class="btn btn-circle btn-info atualizar" href="post/comentarios/<?= $listar->pagina_id ?>/">
@@ -144,15 +167,17 @@ $area->getAreas();
                                                 <a class="btn btn-circle btn-info atualizar"  href="post/editar/<?= $listar->pagina_id ?>/">
                                                     <i class="fa fa-edit icon-white"></i>
                                                 </a>
-                                                <a class="btn btn-circle btn-danger delete" data-url="pagina_fn.php?acao=remover&AMP;id=<?= $listar->pagina_id ?>">
+                                                <a class="btn btn-circle btn-danger delete" data-url="pagina_fn.php?acao=remover&id=<?= $listar->pagina_id ?>">
                                                     <i class="fa fa-trash icon-white"></i>
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+
+                                    </div><!-- /.gallery-item -->
                                 </li>
                             <?php endforeach; ?>
                         <?php endif; ?>
+
                     </ul>
                     <?= $pagina->db->paginacao ?>
                 </div><!-- /.body-content -->
@@ -167,7 +192,7 @@ $area->getAreas();
                         <button type="button" class="close" data-dismiss="modal">×</button>
                         <h4 class="text-center text-danger">Atenção!</h4>
                         <p class="text-center text-danger">
-                            Você está prestes à excluir um registro de forma permanente.<br />
+                            Você está prestes à excluir um registro de forma permanente!<br />
                             Deseja realmente executar este procedimento?
                         </p>
                         <p class="text-center">
@@ -196,7 +221,6 @@ $area->getAreas();
         <script src="./assets/js/jquery.easing.1.3.min.js"></script>
         <script src="./assets/ionsound/ion.sound.min.js"></script>
         <script src="./assets/js/bootbox.js"></script>
-        <script src="./assets/js/jquery.rtnotify.js"></script>
         <!--/ END CORE PLUGINS -->
 
         <!-- START @PAGE LEVEL PLUGINS -->
@@ -204,18 +228,17 @@ $area->getAreas();
         <!--/ END PAGE LEVEL PLUGINS -->
 
         <!-- START @PAGE LEVEL SCRIPTS -->
-        <script src="./assets/js/apps.js"></script>
         <script src="./assets/js/dark.gallery.js"></script>
-        <!--/ END PAGE LEVEL SCRIPTS -->
+        <script src="./assets/js/jquery.rtnotify.js"></script>
+        <script src="./assets/js/apps.js"></script>
         <script>
-
+            $('.listarblog').addClass('active');
 <?php if (isset($_GET['success'])): ?>
                 $(document).ready(function () {
                     $.rtnotify({title: "Procedimento Realizado",
                         type: "default"});
                 });
 <?php endif; ?>
-            $('.listarpadrinho').addClass('active');
             $('.delete').on('click', function () {
                 var url = $(this).attr('data-url');
                 $('#MODALREMOVE').modal('show');

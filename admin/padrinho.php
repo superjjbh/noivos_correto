@@ -8,11 +8,11 @@ if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
 $site = new Site();
 $site->getMeta();
 
-$pagina = new Pagina();
-$pagina->db = new DB;
-$pagina->db->url = "posts";
-$pagina->db->paginate(24);
-$pagina->getPosts();
+$padrinhos = new Padrinho();
+$padrinhos->db = new DB;
+$padrinhos->db->url = "padrinho";
+$padrinhos->db->paginate(12);
+$padrinhos->getPadrinhos();
 
 $area = new Area();
 $area->getAreas();
@@ -91,7 +91,7 @@ $area->getAreas();
             <section id="page-content">
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i> <span>Presentes cadastrados</span></h2>
+                    <h2><i class="fa fa-users"></i> <span>Membros Cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -101,7 +101,7 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Presentes</a>
+                                <a href="#">Equipes</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -112,39 +112,29 @@ $area->getAreas();
                 <!-- Start body content -->
                 <div class="body-content animated fadeIn">
                     <ul class="col-md-12 row">
-                        <?php if (isset($pagina->db->data[0])): ?>
-                            <?php foreach ($pagina->db->data as $listar): ?>
+                        <?php if (isset($padrinhos->db->data[0])): ?>
+                            <?php foreach ($padrinhos->db->data as $listar): ?>
                                 <li class="col-md-3">
                                     <div class="gallery-item rounded shadow">
                                         <span class="gallery-love">
                                             <i class="fa fa-heart-o"></i>
                                         </span>
-                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=300&zc=1&src=../images/blog/<?= $listar->pagina_imagem ?>" class="img-responsive full-width" alt="..." /></a>
+                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=300&zc=1&src=../images/team/<?= $listar->padrinho_imagem ?>" class="img-responsive full-width" alt="..." /></a>
                                         <br />
                                         <div class="gallery-author">
                                             <div class="media">
                                                 <div class="media-body text-center">
-                                                    <h4 class="media-heading text-capitalize">Presente: <?= stripslashes($listar->pagina_nome) ?> </h4>
-                                                    <span class="text-capitalize"> Valor: <?= stripslashes($listar->pagina_autor) ?></span>
-													<p><h4 class="media-heading text-capitalize">Em <?= stripslashes($listar->area_nome)?></h4></p>
+                                                    <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->padrinho_nome) ?> </h4>
+                                                    <span class="text-capitalize"> Cargo: <?= stripslashes($listar->padrinho_subtitulo) ?></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="gallery-details">
                                             <div class="text-center">
-                                                <?php if (isset($listar->comentario_pagina)): ?>
-                                                    <a class="btn btn-circle btn-info atualizar" href="post/comentarios/<?= $listar->pagina_id ?>/">
-                                                        <i class="fa fa-comments-o icon-white"></i>
-                                                    </a>
-                                                <?php else: ?>
-                                                    <a class="btn btn-circle btn-info comentario disabled-result" data-toggle="tooltip" data-placement="top" title="Nenhum comentário" href="javascript:void(0);">
-                                                        <i class="fa fa-comments-o icon-white "></i>
-                                                    </a>
-                                                <?php endif; ?>
-                                                <a class="btn btn-circle btn-info atualizar"  href="post/editar/<?= $listar->pagina_id ?>/">
+                                                <a class="btn btn-circle btn-info atualizar"  href="padrinho/editar/<?= $listar->padrinho_id ?>/">
                                                     <i class="fa fa-edit icon-white"></i>
                                                 </a>
-                                                <a class="btn btn-circle btn-danger delete" data-url="pagina_fn.php?acao=remover&AMP;id=<?= $listar->pagina_id ?>">
+                                                <a class="btn btn-circle btn-danger delete" data-url="padrinho_fn.php?acao=remover&AMP;id=<?= $listar->padrinho_id ?>">
                                                     <i class="fa fa-trash icon-white"></i>
                                                 </a>
                                             </div>
@@ -154,7 +144,7 @@ $area->getAreas();
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </ul>
-                    <?= $pagina->db->paginacao ?>
+                    <?= $padrinhos->db->paginacao ?>
                 </div><!-- /.body-content -->
             </section><!-- /#page-content -->
         </section><!-- /#wrapper -->
