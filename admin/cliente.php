@@ -37,7 +37,6 @@ $area->getAreas();
 
         <!-- START @FONT STYLES -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
-        <link href='//fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
         <!--/ END FONT STYLES -->
 
         <!-- START @GLOBAL MANDATORY STYLES -->
@@ -76,20 +75,10 @@ $area->getAreas();
         <p class="upgrade-browser">Upps!! You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- START @WRAPPER -->
         <section id="wrapper" class="page-sound">
-            <!-- START @HEADER -->
-            <?php require_once './navegacao.php'; ?> <!-- /#header -->
-            <!-- /#header -->
-            <!--/ END HEADER -->
-
-            <!-- /#sidebar-left -->
+            <?php require_once './navegacao.php'; ?>
             <?php require_once './menu.php'; ?>
-            <!--/ END SIDEBAR LEFT -->
-
-            <!-- START @PAGE CONTENT -->
             <section id="page-content">
-                <!-- Start page header -->
                 <div class="header-content">
                     <h2><i class="fa fa-users"></i> <span>Pais Cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
@@ -105,21 +94,18 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
-                    </div><!-- /.breadcrumb-wrapper -->
-                </div><!-- /.header-content -->
-                <!--/ End page header -->
-
-                <!-- Start body content -->
+                    </div>
+                </div>
                 <div class="body-content animated fadeIn">
-                    <ul class="col-md-12 row">
+                    <ul class="col-md-12 row" >
                         <?php if (isset($clientes->db->data[0])): ?>
                             <?php foreach ($clientes->db->data as $listar): ?>
-                                <li class="col-md-3">
+                                <div class="col-md-3">
                                     <div class="gallery-item rounded shadow">
                                         <span class="gallery-love">
                                             <i class="fa fa-heart-o"></i>
                                         </span>
-                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=300&zc=1&src=../images/team/<?= $listar->cliente_imagem ?>" class="img-responsive full-width" alt="..." /></a>
+                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=600&h=400&zc=1&src=../images/team/<?= $listar->cliente_imagem ?>" class="img-responsive full-width" alt="..." /></a>
                                         <br />
                                         <div class="gallery-author">
                                             <div class="media">
@@ -140,14 +126,14 @@ $area->getAreas();
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </ul>
                     <?= $clientes->db->paginacao ?>
-                </div><!-- /.body-content -->
-            </section><!-- /#page-content -->
-        </section><!-- /#wrapper -->
+                </div>
+            </section>
+        </section>
         <!--/ END WRAPPER -->
         <!--***************MODAL REMOVER*****************-->
         <div class="modal fade" id="MODALREMOVE" tabindex="-1" role="dialog"  aria-hidden="true">
@@ -169,14 +155,9 @@ $area->getAreas();
             </div>
         </div>
         <!--***************MODAL REMOVER*****************-->
-        <!-- START @BACK TOP -->
         <div id="back-top" class="animated pulse circle">
             <i class="fa fa-angle-up"></i>
-        </div><!-- /#back-top -->
-        <!--/ END BACK TOP -->
-
-        <!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
-        <!-- START @CORE PLUGINS -->
+        </div>
         <script src="./assets/js/jquery.min.js"></script>
         <script src="./assets/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./assets/js/handlebars.js"></script>
@@ -187,18 +168,10 @@ $area->getAreas();
         <script src="./assets/ionsound/ion.sound.min.js"></script>
         <script src="./assets/js/bootbox.js"></script>
         <script src="./assets/js/jquery.rtnotify.js"></script>
-        <!--/ END CORE PLUGINS -->
-
-        <!-- START @PAGE LEVEL PLUGINS -->
         <script src="./assets/js/jquery.mixitup.min.js"></script>
-        <!--/ END PAGE LEVEL PLUGINS -->
-
-        <!-- START @PAGE LEVEL SCRIPTS -->
         <script src="./assets/js/apps.js"></script>
         <script src="./assets/js/dark.gallery.js"></script>
-        <!--/ END PAGE LEVEL SCRIPTS -->
         <script>
-
 <?php if (isset($_GET['success'])): ?>
                 $(document).ready(function () {
                     $.rtnotify({title: "Procedimento Realizado",

@@ -12,6 +12,7 @@ class Depoimento extends Controle {
     public $depoimento_nome;
     public $depoimento_cargo;
     public $depoimento_sobre;
+    public $depoimento_status;
     public $depoimento_imagem;
     public $result;
 
@@ -22,15 +23,15 @@ class Depoimento extends Controle {
     }
 
     public function incluir() {
-        $this->insert("depoimento", "depoimento_nome, depoimento_cargo, depoimento_sobre, depoimento_data, depoimento_imagem", "'$this->depoimento_nome','$this->depoimento_cargo', '$this->depoimento_sobre', '$this->data', '$this->depoimento_imagem'");
+        $this->insert("depoimento", "depoimento_nome, depoimento_cargo, depoimento_sobre, depoimento_data, depoimento_imagem, depoimento_status", "'$this->depoimento_nome','$this->depoimento_cargo', '$this->depoimento_sobre', '$this->data', '$this->depoimento_imagem', '$this->depoimento_status'");
     }
 
     public function atualizar() {
         if ($this->depoimento_imagem != "") {
-            $this->update("depoimento", "depoimento_nome = '$this->depoimento_nome', depoimento_cargo = '$this->depoimento_cargo', depoimento_sobre = '$this->depoimento_sobre',"
+            $this->update("depoimento", "depoimento_nome = '$this->depoimento_nome', depoimento_cargo = '$this->depoimento_cargo', depoimento_sobre = '$this->depoimento_sobre', depoimento_status = '$this->depoimento_status'"
                     . "depoimento_imagem = '$this->depoimento_imagem'", "depoimento_id = '$this->depoimento_id'");
         } else {
-            $this->update("depoimento", "depoimento_nome = '$this->depoimento_nome', depoimento_cargo = '$this->depoimento_cargo', depoimento_sobre = '$this->depoimento_sobre'", "depoimento_id = '$this->depoimento_id'");
+            $this->update("depoimento", "depoimento_nome = '$this->depoimento_nome', depoimento_cargo = '$this->depoimento_cargo', depoimento_sobre = '$this->depoimento_sobre', depoimento_status = '$this->depoimento_status'", "depoimento_id = '$this->depoimento_id'");
         }
     }
 

@@ -31,6 +31,8 @@ RewriteRule ^resultado([a-zA-Z0-9-_/]+)/?$ busca.php?pg=$1 [L,QSA]
 RewriteRule ^contato([a-zA-Z0-9-_/]+)/?$ contato.php?pg=$1 [L,QSA]
 RewriteRule ^sobre([a-zA-Z0-9-_/]+)/?$ sobre.php?pg=$1 [L,QSA]
 RewriteRule ^equipe([a-zA-Z0-9-_/]+)/?$ equipe.php?pg=$1 [L,QSA]
+RewriteRule ^depoimento([a-zA-Z0-9-_/]+)/?$ postar_depoimento.php?pg=$1 [L,QSA]
+
 
 
 #admin

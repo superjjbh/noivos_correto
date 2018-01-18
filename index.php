@@ -381,9 +381,11 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     <div class="owl-carousel nekoDataOwl" data-neko_items="1" data-neko_singleitem="true" data-neko_paginationnumbers="true" data-neko_transitionstyle="fade">
                                         <?php foreach ($depoimentos->db->data as $d): ?>
                                         <div class="item">
+										<?php if ($d->depoimento_status == 1) : ?>
                                             <img src="thumb.php?w=600&h=400&zc=1&src=images/team/<?= $d->depoimento_imagem ?>" class="img-circle mb15" alt="client">
                                             <blockquote> <?= Validacao::cut(stripslashes($d->depoimento_sobre),200,'...') ?><br/><small><?= stripslashes($d->depoimento_nome) ?></small></blockquote>
                                         </div>
+										<?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
 

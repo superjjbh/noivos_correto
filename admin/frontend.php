@@ -522,82 +522,13 @@ $modulo11->getModulo11();
 
                                             <!-- **************************** MODULO 5 ****************************-->
 
-                                            <!-- **************************** MODULO 6 ****************************-->
-                                            <div class="panel panel-custom hidden">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionsix">
-                                                            <i class="fa fa-list"></i> Serviços  <span class="pull-right"><i class="fa fa-edit"></i></span> 
-                                                        </a>
-                                                    </h4>
-                                                </div>
-
-                                                <div id="accordionsix" class="panel-collapse collapse">
-                                                    <form enctype="multipart/form-data" method="post" action="modulo6_fn.php?acao=atualizar">
-                                                        <div class="panel-body">
-                                                            <div class="form-group ">
-                                                                <label class="control-label"><i class="fa fa-exclamation-triangle" style="color:yellow"></i> Status do Módulo</label>
-                                                                <select class="form-control input-sm mb-15 rounded" id="modulo6_status" name="modulo6_status">
-                                                                    <option value="">Selecione uma Opção</option>
-                                                                    <option value="1">Ativado</option>
-                                                                    <option value="0">Desativado</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label">Título</label>
-                                                                <input class="form-control rounded" type="text" name="modulo6_nome" value="<?= stripslashes($modulo6->modulo6_nome) ?>" />
-                                                            </div>
-
-                                                            <div class="form-group hide">
-                                                                <label class="control-label">Imagem</label>
-                                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="modulo6_imagem" name="modulo6_imagem"></span>
-                                                                    <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <label class="control-label">Descricao</label>
-                                                                <textarea class="form-control rounded" type="text"  name="modulo6_descricao" style="max-height:50px;"><?= stripslashes($modulo6->modulo6_descricao) ?></textarea>
-                                                            </div>
-
-
-                                                            <div class="form-group form-group-divider">
-                                                                <div class="form-inner">
-                                                                    <h4 class="no-margin"> BOX </h4>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <label class="control-label">Título</label>
-                                                                <textarea class="form-control rounded" type="text"  name="modulo6_nome1" placeholder="Título customizado exemplo(<span class='condiment'>Porque escolher  Oxygen ?</span>)"><?= stripslashes($modulo6->modulo6_nome1) ?></textarea>
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <label class="control-label">Descricao</label>
-                                                                <textarea class="form-control rounded" type="text"  name="modulo6_descricao1"><?= stripslashes($modulo6->modulo6_descricao1) ?></textarea>
-                                                            </div>
-
-                                                            <div class="form-footer">
-                                                                <div class="text-center">
-                                                                    <button class="btn btn-primary" type="submit">Atualizar</button>
-                                                                    <input class="form-control rounded" type="hidden" id="modulo6_id" name="modulo6_id" value="<?= $modulo6->modulo6_id ?>" />
-                                                                </div>
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <!-- **************************** MODULO 6 ****************************-->
 
                                             <!-- **************************** MODULO 7 ****************************-->
                                             <div class="panel panel-custom">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#accordionseven">
-                                                            <i class="fa fa-list"></i> Portfólio  <span class="pull-right"><i class="fa fa-edit"></i></span> 
+                                                            <i class="fa fa-list"></i> Álbum de fotos  <span class="pull-right"><i class="fa fa-edit"></i></span> 
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -642,7 +573,7 @@ $modulo11->getModulo11();
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#accordioneight" >
-                                                            <i class="fa fa-list"></i> Equipe  <span class="pull-right"><i class="fa fa-edit"></i></span> 
+                                                            <i class="fa fa-list"></i> Nossos Pais  <span class="pull-right"><i class="fa fa-edit"></i></span> 
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -744,7 +675,7 @@ $modulo11->getModulo11();
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#accordionten">
-                                                            <i class="fa fa-list"></i> Página Serviços  <span class="pull-right"><i class="fa fa-edit"></i></span> 
+                                                            <i class="fa fa-list"></i> Lista de Presentes  <span class="pull-right"><i class="fa fa-edit"></i></span> 
                                                         </a>
                                                     </h4>
                                                 </div>

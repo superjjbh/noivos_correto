@@ -1,10 +1,9 @@
 <?php
-require_once '../loader.php';
-@session_start();
-if ($_SESSION['LOGADO'] == FALSE) {
-    @header('location:' . Validacao::getBase() . 'admin/logar/');
-    exit;
-}
+/*
+ * @author phpstaff.com.br
+ */
+require_once './loader.php';
+
 
 function incluir() {
     $depoimento_nome = addslashes($_POST['depoimento_nome']);
@@ -21,7 +20,8 @@ function incluir() {
         $depoimento->enviar();
     }
     $depoimento->incluir();
-    Filter :: redirect("depoimentos/?success");
+        $url_redirect = "depoimento/".Filter::slug2($depoimento_nome)."/?success#depoimento";
+    Filter:: redirect($url_redirect);
 }
 
 function atualizar() {

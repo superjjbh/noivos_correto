@@ -1,18 +1,29 @@
 <?php
 require_once '../loader.php';
-@session_start();
-if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
-    @header('location:' . Validacao::getBase() . 'admin/logar/');
-    exit;
-}
 $site = new Site();
 $site->getMeta();
 
+$area = new Area();
+$area->getAreas();
 
-$depoimento_id = intval($_GET['id']);
-$editar = new Depoimento();
-$editar->depoimento_id = $depoimento_id;
-$editar->getDepoimento();
+$modulo_aparencia = new ModuloAparencia();
+$modulo_aparencia->getModuloaparencia();
+
+$topo = new Modulo1();
+$topo->getModulo1();
+
+$menu = new Modulo2();
+$menu->getModulo2();
+
+$sobre = new Modulo3();
+$sobre->getModulo3();
+
+$portfolio = new Modulo7();
+$portfolio->getModulo7();
+
+$contato = new Modulo9();
+$contato->getModulo9();
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -21,93 +32,63 @@ $editar->getDepoimento();
 
     <!-- START @HEAD -->
     <head>
-        <?php require_once './base.php'; ?>
-        <!-- START @META SECTION -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <?php require_once './analytics.php'; ?>
+        <?php require_once './base.php'; ?>
+        <!-- Basic Page Needs
+        ================================================== -->
         <title><?= $site->site_meta_titulo ?></title>
-        <!--/ END META SECTION -->
-
-        <!-- START @FAVICONS -->
-        <link href="./assets/img/ico/favicon.ico?<?= rand(0, 100) ?>" rel="shortcut icon" sizes="144x144">
-        <!--/ END FAVICONS -->
-
-        <!-- START @FONT STYLES -->
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
-        <link href='//fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-        <!--/ END FONT STYLES -->
-
-        <!-- START @GLOBAL MANDATORY STYLES -->
-        <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-        <!--/ END GLOBAL MANDATORY STYLES -->
-
-        <!-- START @PAGE LEVEL STYLES -->
-        <link href="./assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="./assets/css/animate.min.css" rel="stylesheet">
-        <link href="./assets/css/bootstrap-tagsinput.css" rel="stylesheet">
-        <link href="./assets/css/jasny-bootstrap-fileinput.min.css" rel="stylesheet">
-        <link href="./assets/css/chosen.min.css" rel="stylesheet">
-        <!--/ END PAGE LEVEL STYLES -->
-
-        <!-- START @THEME STYLES -->
-        <link href="./assets/css/reset.css" rel="stylesheet">
-        <link href="./assets/css/layout.css" rel="stylesheet">
-        <link href="./assets/css/components.css" rel="stylesheet">
-        <link href="./assets/css/plugins.css" rel="stylesheet">
-        <link href="./assets/css/themes/default.theme.css" rel="stylesheet" id="theme">
-        <link href="./assets/css/custom.css" rel="stylesheet">
-        <!--/ END THEME STYLES -->
-
-        <!-- START @IE SUPPORT -->
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="./assets/js/html5shiv.min.js"></script>
-        <script src="./assets/js/respond.min.js"></script>
-        <![endif]-->
-        <!--/ END IE SUPPORT -->
+        <meta name="description" content="<?= $site->site_meta_desc ?>">
+        <meta name="keywords" content="<?= $site->site_meta_palavra ?>">
+        <meta name="author" content="<?= $site->site_meta_autor ?>">
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- CSS
+        ================================================== -->
+        <!-- Bootstrap  -->
+        <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+        <!-- web font  -->
+        <link href='//fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <!-- plugin css  -->
+        <link rel="stylesheet" type="text/css" href="js-plugin/animation-framework/animate.css" />
+        <!-- Pop up-->
+        <link rel="stylesheet" type="text/css" href="js-plugin/magnific-popup/magnific-popup.css" />
+        <!-- Flex slider-->
+        <link rel="stylesheet" type="text/css" href="js-plugin/flexslider/flexslider.css" />
+        <!-- Owl carousel-->
+        <link rel="stylesheet" href="js-plugin/owl.carousel/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="js-plugin/owl.carousel/owl-carousel/owl.transitions.css">
+        <link rel="stylesheet" href="js-plugin/owl.carousel/owl-carousel/owl.theme.css">
+        <!-- icon fonts -->
+        <link type="text/css" rel="stylesheet" href="font-icons/custom-icons/css/custom-icons.css">
+        <link type="text/css" rel="stylesheet" href="font-icons/custom-icons/css/custom-icons-ie7.css">
+        <!-- nekoAnim-->
+        <link rel="stylesheet" type="text/css" href="js-plugin/appear/nekoAnim.css">
+        <!-- Custom css -->
+        <link type="text/css" rel="stylesheet" href="css/layout.css">
+        <link type="text/css" id="colors" rel="stylesheet" href="css/<?= $modulo_aparencia->modulo_aparencia_cor ?>.css">
+        <link type="text/css" rel="stylesheet" href="css/custom.css">
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+        <script src="js/modernizr-2.6.1.min.js"></script>
+        <!-- Favicons
+        ================================================== -->
+        <link rel="shortcut icon" href="admin/assets/img/ico/favicon.ico?<?= rand(0, 100) ?>">
     </head>
-    <!--/ END HEAD -->
+    <body class="header4 activateAppearAnimation" id="<?= $modulo_aparencia->modulo_aparencia_wide?>">
+        <!-- Primary Page Layout 
+        ================================================== -->
+        <!-- globalWrapper -->
+        <div id="globalWrapper">
+            <!-- header -->
+            <header class="navbar-fixed-top">
+                <div id="mainHeader" role="banner">
+                    <?php require_once './menu.php'; ?>
+                </div>
+            </header>
+            <!-- header -->
 
-    <body>
-
-        <!--[if lt IE 9]>
-        <p class="upgrade-browser">Upps!! You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- START @WRAPPER -->
-        <section id="wrapper" class="page-sound">
-            <!-- START @HEADER -->
-            <?php require_once './navegacao.php'; ?>
-            <!--/ END HEADER -->
-
-
-
-            <!-- /#sidebar-left -->
-            <?php require_once './menu.php'; ?>
-            <!--/ END SIDEBAR LEFT -->
-
-            <!-- START @PAGE CONTENT -->
-            <section id="page-content">
-
-                <!-- Start page header -->
-                <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Depoimento</span></h2>
-                    <div class="breadcrumb-wrapper hidden-xs">
-                        <span class="label">Você está em :</span>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-home"></i>
-                                <a href="home/">Dashboard</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <a href="#">Depoimento</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                        </ol>
-                    </div><!-- /.breadcrumb-wrapper -->
-                </div><!-- /.header-content -->
-                <!--/ End page header -->
 
                 <!-- Start body content -->
                 <div class="body-content animated fadeIn">
@@ -117,26 +98,26 @@ $editar->getDepoimento();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Depoimento</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Depoimento</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
-                                    <form enctype="multipart/form-data" method="post" action="depoimento_fn.php?acao=atualizar">
+                                    <form enctype="multipart/form-data" method="post" action="depoimento_fn.php?acao=incluir">
                                         <div class="form-body">
 
                                             <div class="form-group">
                                                 <label class="control-label">Nome</label>
-                                                <input class="form-control rounded" type="text" id="depoimento_nome"  name="depoimento_nome" required value="<?= stripslashes($editar->depoimento_nome)?>"/>
+                                                <input class="form-control rounded" type="text" id="depoimento_nome"  name="depoimento_nome" required>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Parentesco</label>
-                                                <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo" value="<?= stripslashes($editar->depoimento_cargo) ?>" />
+                                                <label class="control-label">Empresa</label>
+                                                <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo">
                                             </div>
-
+                                            
                                             <div class="form-group">
                                                 <label class="control-label">Depoimento</label>
-                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"><?= stripslashes($editar->depoimento_sobre) ?></textarea>
+                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"></textarea>
                                             </div>
 											
                                             <div class="form-group">
@@ -153,14 +134,15 @@ $editar->getDepoimento();
                                                     <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
                                                     <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="depoimento_imagem" name="depoimento_imagem"></span>
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
-                                                    <input type="hidden" id="depoimento_id"  name="depoimento_id" value="<?= $editar->depoimento_id ?>" />
                                                 </div>
                                             </div>
+											
+											
 
 
                                             <div class="form-footer">
                                                 <div class="pull-right">
-                                                    <button class="btn btn-primary" type="submit">Atualizar</button>
+                                                    <button class="btn btn-primary" type="submit">Cadastrar</button>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>

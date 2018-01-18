@@ -8,11 +8,11 @@ if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
 $site = new Site();
 $site->getMeta();
 
-$padrinhos = new Padrinho();
-$padrinhos->db = new DB;
-$padrinhos->db->url = "padrinho";
-$padrinhos->db->paginate(12);
-$padrinhos->getPadrinhos();
+$clientes = new Cliente();
+$clientes->db = new DB;
+$clientes->db->url = "equipe";
+$clientes->db->paginate(12);
+$clientes->getClientes();
 
 $area = new Area();
 $area->getAreas();
@@ -37,6 +37,7 @@ $area->getAreas();
 
         <!-- START @FONT STYLES -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
         <!--/ END FONT STYLES -->
 
         <!-- START @GLOBAL MANDATORY STYLES -->
@@ -75,12 +76,22 @@ $area->getAreas();
         <p class="upgrade-browser">Upps!! You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <!-- START @WRAPPER -->
         <section id="wrapper" class="page-sound">
-            <?php require_once './navegacao.php'; ?>
+            <!-- START @HEADER -->
+            <?php require_once './navegacao.php'; ?> <!-- /#header -->
+            <!-- /#header -->
+            <!--/ END HEADER -->
+
+            <!-- /#sidebar-left -->
             <?php require_once './menu.php'; ?>
+            <!--/ END SIDEBAR LEFT -->
+
+            <!-- START @PAGE CONTENT -->
             <section id="page-content">
+                <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i> <span>Padrinhos Cadastrados</span></h2>
+                    <h2><i class="fa fa-users"></i> <span>Pais Cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -90,49 +101,53 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Nossos Padrinhos</a>
+                                <a href="#">Nossos Pais</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
-                    </div>
-                </div>
+                    </div><!-- /.breadcrumb-wrapper -->
+                </div><!-- /.header-content -->
+                <!--/ End page header -->
+
+                <!-- Start body content -->
                 <div class="body-content animated fadeIn">
-                    <ul class="col-md-12 row" >
-                        <?php if (isset($padrinhos->db->data[0])): ?>
-                            <?php foreach ($padrinhos->db->data as $listar): ?>
-                                <div class="col-md-3">
+                    <ul class="col-md-12 row">
+                        <?php if (isset($clientes->db->data[0])): ?>
+                            <?php foreach ($clientes->db->data as $listar): ?>
+                                <li class="col-md-3">
                                     <div class="gallery-item rounded shadow">
                                         <span class="gallery-love">
                                             <i class="fa fa-heart-o"></i>
                                         </span>
-                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=600&h=400&zc=1&src=../images/team/<?= $listar->padrinho_imagem ?>" class="img-responsive full-width" alt="..." /></a>
+                                        <a href="javascript:void(0);" style="cursor:default" class="gallery-img"><img src="thumb.php?w=400&h=300&zc=1&src=../images/team/<?= $listar->cliente_imagem ?>" class="img-responsive full-width" alt="..." /></a>
                                         <br />
                                         <div class="gallery-author">
                                             <div class="media">
                                                 <div class="media-body text-center">
-                                                    <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->padrinho_nome) ?> </h4>
+                                                    <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->cliente_nome) ?> </h4>
+                                                    <span class="text-capitalize"> Pai/Mãe de: <?= stripslashes($listar->cliente_subtitulo) ?></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="gallery-details">
                                             <div class="text-center">
-                                                <a class="btn btn-circle btn-info atualizar"  href="padrinho/editar/<?= $listar->padrinho_id ?>/">
+                                                <a class="btn btn-circle btn-info atualizar"  href="equipe/editar/<?= $listar->cliente_id ?>/">
                                                     <i class="fa fa-edit icon-white"></i>
                                                 </a>
-                                                <a class="btn btn-circle btn-danger delete" data-url="padrinho_fn.php?acao=remover&AMP;id=<?= $listar->padrinho_id ?>">
+                                                <a class="btn btn-circle btn-danger delete" data-url="cliente_fn.php?acao=remover&AMP;id=<?= $listar->cliente_id ?>">
                                                     <i class="fa fa-trash icon-white"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </li>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </ul>
-                    <?= $padrinhos->db->paginacao ?>
-                </div>
-            </section>
-        </section>
+                    <?= $clientes->db->paginacao ?>
+                </div><!-- /.body-content -->
+            </section><!-- /#page-content -->
+        </section><!-- /#wrapper -->
         <!--/ END WRAPPER -->
         <!--***************MODAL REMOVER*****************-->
         <div class="modal fade" id="MODALREMOVE" tabindex="-1" role="dialog"  aria-hidden="true">
@@ -154,9 +169,14 @@ $area->getAreas();
             </div>
         </div>
         <!--***************MODAL REMOVER*****************-->
+        <!-- START @BACK TOP -->
         <div id="back-top" class="animated pulse circle">
             <i class="fa fa-angle-up"></i>
-        </div>
+        </div><!-- /#back-top -->
+        <!--/ END BACK TOP -->
+
+        <!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+        <!-- START @CORE PLUGINS -->
         <script src="./assets/js/jquery.min.js"></script>
         <script src="./assets/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./assets/js/handlebars.js"></script>
@@ -167,17 +187,25 @@ $area->getAreas();
         <script src="./assets/ionsound/ion.sound.min.js"></script>
         <script src="./assets/js/bootbox.js"></script>
         <script src="./assets/js/jquery.rtnotify.js"></script>
+        <!--/ END CORE PLUGINS -->
+
+        <!-- START @PAGE LEVEL PLUGINS -->
         <script src="./assets/js/jquery.mixitup.min.js"></script>
+        <!--/ END PAGE LEVEL PLUGINS -->
+
+        <!-- START @PAGE LEVEL SCRIPTS -->
         <script src="./assets/js/apps.js"></script>
         <script src="./assets/js/dark.gallery.js"></script>
+        <!--/ END PAGE LEVEL SCRIPTS -->
         <script>
+
 <?php if (isset($_GET['success'])): ?>
                 $(document).ready(function () {
                     $.rtnotify({title: "Procedimento Realizado",
                         type: "default"});
                 });
 <?php endif; ?>
-            $('.listarpadrinho').addClass('active');
+            $('.listar').addClass('active');
             $('.delete').on('click', function () {
                 var url = $(this).attr('data-url');
                 $('#MODALREMOVE').modal('show');

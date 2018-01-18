@@ -135,6 +135,14 @@ $area->getAreas();
                                                 <label class="control-label">Depoimento</label>
                                                 <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"></textarea>
                                             </div>
+											
+                                            <div class="form-group">
+                                                <label class="control-label">Publicado</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
+                                                    <option value="1">Sim</option>
+                                                    <option value="0">Não</option>
+                                                </select>
+                                            </div>
 
                                             <div class="form-group">
                                                 <label class="control-label">Foto</label>
@@ -144,6 +152,8 @@ $area->getAreas();
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
                                                 </div>
                                             </div>
+											
+											
 
 
                                             <div class="form-footer">

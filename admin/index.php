@@ -14,7 +14,7 @@ $contato->getContato();
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!--> <html lang="pt"> <!--<![endif]-->
 
     <!-- START @HEAD -->
     <head>
@@ -110,33 +110,6 @@ $contato->getContato();
                 <div class="body-content animated fadeIn">
 
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="mini-stat clearfix bg-twitter rounded">
-                                <span class="mini-stat-icon"><i class="fa fa-wrench fg-bitbucket"></i></span>
-                                <div class="mini-stat-info">
-                                    <span><?= $site->getCount('pagina') ?></span>
-                                    Serviços
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="mini-stat clearfix bg-googleplus rounded">
-                                <span class="mini-stat-icon"><i class="fa fa-suitcase  fg-bitbucket"></i></span>
-                                <div class="mini-stat-info">
-                                    <span><?= $site->getCount('portfolio') ?></span>
-                                    Portfólios
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="mini-stat clearfix bg-inverse rounded">
-                                <span class="mini-stat-icon"><i class="fa fa-pencil fg-bitbucket "></i></span>
-                                <div class="mini-stat-info">
-                                    <span><?= $site->getCount('servico') ?></span>
-                                    Destaques
-                                </div>
-                            </div>
-                        </div>
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="mini-stat clearfix bg-soundcloud rounded">
                                 <span class="mini-stat-icon"><i class="fa fa-photo fg-bitbucket"></i></span>
@@ -147,7 +120,7 @@ $contato->getContato();
                             </div>
                         </div>
 						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="mini-stat clearfix bg-lilac rounded">
+                            <div class="mini-stat clearfix bg-twitter rounded">
                                 <span class="mini-stat-icon"><i class="fa fa-bullhorn fg-bitbucket"></i></span>
                                 <div class="mini-stat-info">
                                     <span><?= $site->getCount('depoimento') ?></span>
@@ -155,10 +128,45 @@ $contato->getContato();
                                 </div>
                             </div>
                         </div>
-
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat clearfix bg-lilac rounded">
+                                <span class="mini-stat-icon"><i class="fa fa-users fg-bitbucket"></i></span>
+                                <div class="mini-stat-info">
+                                    <span><?= $site->getCount('cliente') ?></span>
+                                    Pais
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat clearfix bg-lilac rounded">
+                                <span class="mini-stat-icon"><i class="fa fa-users fg-bitbucket"></i></span>
+                                <div class="mini-stat-info">
+                                    <span><?= $site->getCount('padrinho') ?></span>
+                                    Padrinhos
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat clearfix bg-twitter rounded">
+                                <span class="mini-stat-icon"><i class="fa fa-cart-plus fg-bitbucket"></i></span>
+                                <div class="mini-stat-info">
+                                    <span><?= $site->getCount('pagina') ?></span>
+                                    Presentes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat clearfix bg-googleplus rounded">
+                                <span class="mini-stat-icon"><i class="fa fa-picture-o  fg-bitbucket"></i></span>
+                                <div class="mini-stat-info">
+                                    <span><?= $site->getCount('portfolio') ?></span>
+                                    Álbum de Fotos
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="mini-stat clearfix bg-bitbucket rounded">
-                                <span class="mini-stat-icon"><i class="fa fa-users fg-bitbucket"></i></span>
+                                <span class="mini-stat-icon"><i class="fa fa-user fg-bitbucket"></i></span>
                                 <div class="mini-stat-info">
                                     <span><?= $site->getCount('usuario') ?></span>
                                     Usuários
