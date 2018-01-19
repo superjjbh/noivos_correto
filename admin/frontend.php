@@ -617,7 +617,7 @@ $modulo11->getModulo11();
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion" href="#accordionnine">
-                                                            <i class="fa fa-list"></i> Contato  <span class="pull-right"><i class="fa fa-edit"></i></span> 
+                                                            <i class="fa fa-list"></i> RSVP da Home  <span class="pull-right"><i class="fa fa-edit"></i></span> 
                                                         </a>
                                                     </h4>
                                                 </div>

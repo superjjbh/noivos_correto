@@ -111,7 +111,8 @@ $area->getAreas();
                                             <div class="media">
                                                 <div class="media-body text-center">
                                                     <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->depoimento_nome) ?> </h4>
-                                                    <span class="text-capitalize"> Empresa : <?= stripslashes($listar->depoimento_cargo) ?></span>
+                                                    <span class="text-capitalize"> Parentesco : <?= stripslashes($listar->depoimento_cargo) ?></span><br>
+													<span class="text-capitalize"> Publicado : <b><?= stripslashes($listar->depoimento_status) ?></b></span>
                                                 </div>
                                             </div>
                                         </div>
