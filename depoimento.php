@@ -135,40 +135,45 @@ $pagina->getPagina();
                                     <h3 class="commentNumbers">Depoimentos</h3>
 
                       
-                                <div class="row"><a name="depoimento">&nbsp;</a></div>
-                                <?php  if (isset($_GET['success'])) :?>
-                                    <br><br><Br>
-                                    <br><br><Br>
-                                        <h2 class='alert alert-success'><strong>Obrigado!</strong> Sua mensagem foi enviada.</h2>
-                                    <br><br><Br>
-                                <?php else: ?>
                                     <hr>
                                     <h3 class="commentNumbers">Deixe um depoimento</h3>
-                                    <form method="post" action="depoimento_fn.php?acao=incluir" id="postComment" role="form">
-                                        <div class="form-group">
-                                            <label for="name">Nome</label>
-                                            <input type="text" class="form-control" name="depoimento_nome" id="depoimento_nome" placeholder="Nome *"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Parentesco</label>
-                                            <input type="text" class="form-control"  name="depoimento_cargo" id="depoimento_cargo" placeholder="Parentesco *"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="comment">Depoimento</label>
-                                            <textarea cols="5"  class="form-control" rows="5" name="depoimento_sobre" id="depoimento_sobre" placeholder="Depoimento *"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Foto</label>
-                                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><input type="file" id="depoimento_imagem" name="depoimento_imagem"></span>
+                                    <form enctype="multipart/form-data" method="post" action="depoimento_fn.php?acao=incluir">
+										<input type="hidden" name="redirect" value="index.php">
+                                            <div class="form-group">
+                                                <label class="control-label">Nome</label>
+                                                <input class="form-control rounded" type="text" id="depoimento_nome"  name="depoimento_nome" required>
                                             </div>
-                                        </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Parentesco</label>
+                                                <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="control-label">Depoimento</label>
+                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"></textarea>
+                                            </div>
+											
+                                            <div class="form-group">
+                                                <label class="control-label">Publicado</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
+                                                    <option value="1">Sim</option>
+                                                    <option value="0">Não</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label">Foto</label>
+                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="depoimento_imagem" name="depoimento_imagem"></span>
+                                                    <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
+                                                </div>
+                                            </div>
                                         <button class="btn btn-primary" type="submit">Cadastrar</button>
                                         <input type="hidden" name="depoimento_status" value="0">
                                     </form>
-                                    <?php endif; ?>
-                                </section>
+									                               </section>
                                 <!-- ==============================================
                                                   FIM  COMENTÁRIO
                                   =============================================== -->

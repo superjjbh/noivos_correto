@@ -4,7 +4,6 @@
  */
 require_once './loader.php';
 
-
 function incluir() {
     $depoimento_nome = addslashes($_POST['depoimento_nome']);
     $depoimento_cargo = addslashes($_POST['depoimento_cargo']);
@@ -20,8 +19,7 @@ function incluir() {
         $depoimento->enviar();
     }
     $depoimento->incluir();
-        $url_redirect = "depoimento/".Filter::slug2($depoimento_nome)."/?success#depoimento";
-    Filter:: redirect($url_redirect);
+    Filter :: redirect("index.php");
 }
 
 function atualizar() {
