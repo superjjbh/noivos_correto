@@ -65,7 +65,36 @@ $editar->getDepoimento();
         <script src="./assets/js/respond.min.js"></script>
         <![endif]-->
         <!--/ END IE SUPPORT -->
-    </head>
+		<script language="Javascript">
+		var limite=200;
+
+		function soma() {
+
+		var mais_um=eval(document.form.caracteres.value.length-1);
+		mais_um++;
+
+		 if (document.form.caracteres.value.length>limite) 
+		 {
+		  document.form.caracteres.value='';
+		  document.form.caracteres.value=valor_limite;
+		  alert("Você deve digitar no máximo "+limite+" caracteres");
+		 }
+		 else
+		 {
+		  document.form.exibe.value='';
+		  document.form.exibe.value=eval(mais_um);
+		  valor_limite=document.form.caracteres.value;
+		  document.form.exibe2.value='';
+		  document.form.exibe2.value=(limite-mais_um);
+		 }
+
+		document.form.caracteres.focus();
+		}
+
+		function mostra_tamanho(){
+		document.form.exibe2.value=limite;
+		}
+		</script>    </head>
     <!--/ END HEAD -->
 
     <body>
@@ -136,13 +165,14 @@ $editar->getDepoimento();
 
                                             <div class="form-group">
                                                 <label class="control-label">Depoimento</label>
-                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"><?= stripslashes($editar->depoimento_sobre) ?></textarea>
+                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre" maxlength="200"><?= stripslashes($editar->depoimento_sobre) ?></textarea>
                                             </div>
 											
                                             <div class="form-group">
-                                                <label class="control-label">Publicado: <?= stripslashes($editar->depoimento_status) ?></label><br>
+											<h4 class="media-heading text-capitalize"> Publicado: <b><?= stripslashes($editar->depoimento_status) ?></b> </h4>
+                                                <br><br>
                                                 <label class="control-label">Alterar publicação</label>
-                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
+                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;">
                                                     <option value="">Escolha uma opção...</option>
 													<option value="SIM">Sim</option>
                                                     <option value="NÃO">Não</option>
