@@ -104,11 +104,11 @@ $categoria_portfolio->getAreas1();
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>Portfólio</h1>
+                                <h1>Álbum de Fotos</h1>
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/">Home</a></li>
-                                    <li><a href="javascript:void(0);">Portfólio</a></li>
-                                    <li class="active">Projetos</li>
+                                    <li><a href="javascript:void(0);">Álbum de Fotos</a></li>
+                                    <li class="active">Fotos</li>
                                 </ul>
                             </div>
                         </div>
@@ -142,7 +142,7 @@ $categoria_portfolio->getAreas1();
                                                         <div class="iconLinks"> 
                                                             <a href="projeto/<?= Filter::slug2($trabalhos->portfolio_nome) ?>/<?= $trabalhos->portfolio_id ?>/">
                                                                 <i class="icon-link iconRounded iconMedium"></i>
-                                                                <span>ver projeto</span>
+                                                                <span>ver detalhes</span>
                                                             </a> 
                                                             <a href="images/portfolio/<?= $trabalhos->portfolio_imagem ?>" class="image-link"  >
                                                                 <i class="icon-search iconRounded iconMedium"></i>

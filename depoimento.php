@@ -108,8 +108,8 @@ $portfolio = new Portfolio();
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1><?= stripslashes($blog->modulo10_nome) ?></h1>
-                                <p><?= stripslashes($blog->modulo10_subtitulo) ?></p>
+                                <h1>Depoimentos sobre os noivos</h1>
+                                <p>Envie um depoimento sobre os noivos!</p>
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/">Home</a></li>
                                     <li><a href="blog/">Depoimentos sobre os noivos</a></li>
@@ -135,9 +135,7 @@ $portfolio = new Portfolio();
                                  =============================================== -->
                                 <hr>
                                 <section class="clearfix comments pt30">
-                                    <h3 class="commentNumbers">Depoimentos sobre os noivos</h3>
-
-                      
+                                    <h2 class="commentNumbers">Depoimentos sobre os noivos</h2>
                                     <hr>
                                     <h3 class="commentNumbers">Deixe um depoimento</h3>
                                     <form enctype="multipart/form-data" method="post" action="depoimento_fn.php?acao=incluir">
@@ -153,8 +151,8 @@ $portfolio = new Portfolio();
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="control-label">Depoimento</label>
-                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"></textarea>
+                                                <label class="control-label">Depoimento (Máximo 200 caracteres)</label>
+                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre" maxlength="200"></textarea>
                                             </div>
 											
                                             <div class="form-group">
@@ -166,7 +164,7 @@ $portfolio = new Portfolio();
                                                 </div>
                                             </div>
                                         <button class="btn btn-primary" type="submit">Cadastrar</button>
-                                        <input type="hidden" name="depoimento_status" value="0">
+                                        <input type="hidden" name="depoimento_status" value="NÃO">
                                     </form>
 									                               </section>
                                 <!-- ==============================================
@@ -242,8 +240,5 @@ $portfolio = new Portfolio();
         <script type="text/javascript" src="js-plugin/appear/jquery.appear.js"></script>	
         <!-- Custom  -->
         <script type="text/javascript" src="js/custom.js"></script>
-        <script>
-            $('#posts').addClass('active');
-        </script>
     </body>
 </html>

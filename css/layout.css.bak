@@ -1165,7 +1165,7 @@ li.Nactive .nekoMegaMenu,  li.Nactive .nekoMegaMenu ul  {
 /* HOME
 ================================================== */
 
-#mapWrapper{ height:440px; }
+#mapWrapper{ height:525px; }
 
 /*** MEDIA QUERIES ***/
 

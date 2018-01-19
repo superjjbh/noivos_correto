@@ -134,31 +134,26 @@ $site->getMeta();
 
                                             <div class="form-group">
                                                 <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Telefone Principal</span>
-                                                <label class="control-label"> Celular 1</label>
+                                                <label class="control-label"> Telefone para contato</label>
                                                 <input type="text" class="form-control rounded" data-inputmask="'mask': ['()-9999-9999 [x99999]', '+099 99 99 9999[9]-9999'], 'showTooltip': false" id="contato_telefone1" name="contato_telefone1" value="<?= $contato->contato_telefone1 ?>" />
                                             </div>
 
                                             <div class="form-group">
-                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Telefone Adicional</span>
-                                                <label class="control-label"> Celular 2</label>
-                                                <input type="text" class="form-control rounded" id="contato_telefone2" name="contato_telefone2" value="<?= $contato->contato_telefone2 ?>" />
+                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Exemplo: 01/10/2018</span>
+                                                <label class="control-label"> Data do Casamento</label>
+                                                <input type="text" class="form-control rounded" id="contato_telefone2" name="contato_telefone2"  required value="<?= $contato->contato_telefone2 ?>" />
                                             </div>
 
                                             <div class="form-group">
-                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe apenas o dia do casamento. Exemplo.: 10.</span>
-                                                <label class="control-label"> Dia do casamento</label>
-                                                <input type="text" class="form-control rounded"  id="contato_telefone3" name="contato_telefone3" value="<?= $contato->contato_telefone3 ?>" />
+                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe o endereço onde ocorrerá a cerimônia, para gerar o mapa.</span>
+                                                <label class="control-label"> Endereço da cerimônia</label>
+                                                <input type="text" class="form-control rounded" id="contato_endereco" name="contato_endereco" required value="<?= $contato->contato_endereco ?>" />
                                             </div>
 
                                             <div class="form-group">
-                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe apenas o mês do casamento. Exemplo.: 12.</span>
-                                                <label class="control-label"> Mês do casamento</label>
+                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe o endereço onde ocorrerá a recepção, caso não queira informar, deixe preenchido com a frase abaixo.</span>
+                                                <label class="control-label"> Endereço da recepção</label>
                                                 <input type="text" class="form-control rounded" id="contato_telefone4" name="contato_telefone4" value="<?= $contato->contato_telefone4 ?>" />
-                                            </div>
-                                            <div class="form-group">
-                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe apenas o ano do casamento. Exemplo.: 2018.</span>
-                                                <label class="control-label"> Ano do casamento</label>
-                                                <input type="text" class="form-control rounded" id="contato_telefone5" name="contato_telefone5"  value="<?= $contato->contato_telefone5 ?>" />
                                             </div>
                                             <div class="form-group">
                                                 <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Informe o seu e-mail cadastrado no PagSeguro, para lista de presentes</span>
@@ -167,8 +162,6 @@ $site->getMeta();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label"> Endereço da cerimônia</label>
-                                                <input type="text" class="form-control rounded" id="contato_endereco" name="contato_endereco" required value="<?= $contato->contato_endereco ?>" />
                                                 <input type="hidden" id="contato_id" name="contato_id"  value="<?= $contato->contato_id ?>" />
                                             </div>
 
@@ -228,7 +221,6 @@ $site->getMeta();
 <?php endif; ?>
         $(function ($) {
             $("#contato_telefone1").mask("(99) 99999-9999");
-            $("#contato_telefone2").mask("(99) 99999-9999");
         });
     </script>
 </html>

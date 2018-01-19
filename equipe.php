@@ -98,10 +98,10 @@ $pagina->getBlog();
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h1>Nossa Equipe</h1>
+                                <h1>Nossos Padrinhos</h1>
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/"><?= stripslashes($menu->modulo2_nome) ?></a></li>
-                                    <li class="active">Nossa Equipe</li>
+                                    <li class="active">Nossos Padrinhos</li>
                                 </ul>
                             </div>
                         </div>
@@ -111,7 +111,7 @@ $pagina->getBlog();
                     <div class="container">
                         <div class="row">
                             <section class="col-md-12">
-                                <h2><?= stripslashes($sobre->modulo3_nome) ?></h2>
+                                <h2><?= stripslashes($site->site_meta_titulo) ?></h2>
 
                                 <div class="mb15">
                                     <div class="col-md-4">
@@ -123,30 +123,29 @@ $pagina->getBlog();
                     $equipe = new Modulo8();
                     $equipe->getModulo8();
                     ?>
-                <?php if ($equipe->modulo8_status == 1): ?>
 
                     <?php 
-                    $membro = new Cliente();
-                    $membro->getClientes();
+                    $padrinho = new Padrinho();
+                    $padrinho->getPadrinhos();
                     ?>                
-                    <?php if (isset($membro->db->data[0])): ?>
+                    <?php if (isset($padrinho->db->data[0])): ?>
                         <section id="team5" class="pt40 pb40">
                             <div class="container">
                                 <div class="row"> 
                                     <div class="col-md-12 mb40 text-center">
-                                        <h1><?= stripslashes($equipe->modulo8_nome) ?></h1>
-                                        <h2 class="subTitle"><?= stripslashes($equipe->modulo8_descricao) ?></h2>
+                                        <h1>Nossos Padrinhos</h1>
+                                        <h2 class="subTitle">Conheça nossos Padrinhos</h2>
                                     </div>
                                     <section class="col-md-12">
                                         <div class="row mb15">
-                                            <?php foreach ($membro->db->data as $e): ?>
+                                            <?php foreach ($padrinho->db->data as $e): ?>
                                                 <div class="col-md-3 col-sm-6" data-nekoanim="slideInLeft" data-nekodelay="0">
                                                     <article>
-                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->cliente_imagem ?>" alt="" class="img-responsive"></div>
+                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->padrinho_imagem ?>" alt="" class="img-responsive"></div>
                                                         <div class="boxContent text-center">
-                                                            <h3><?= stripslashes($e->cliente_nome) ?></h3>
-                                                            <p><?= stripslashes($e->cliente_subtitulo) ?></p>
-															<p><?= stripslashes($e->cliente_descricao) ?></p>
+                                                            <h3><?= stripslashes($e->padrinho_nome) ?></h3>
+                                                            <p><?= stripslashes($e->padrinho_subtitulo) ?></p>
+															<p><?= stripslashes($e->padrinho_descricao) ?></p>
                                                         </div>
                                                     </article>
                                                 </div>
@@ -157,10 +156,10 @@ $pagina->getBlog();
                             </div>
                         </section>
                     <?php endif; ?>
-                <?php endif; ?>
                 <!-- ==============================================
                                 FIM        EQUIPE
                  =============================================== -->
+				 				 
 									
 																		<!-- AddToAny BEGIN -->
 									

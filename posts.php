@@ -150,7 +150,7 @@ $pagina->getBlog();
                                                         <div class="iconLinks"> 
                                                             <a href="blog/<?= Filter::slug2($trabalhos->pagina_nome) ?>/<?= $trabalhos->pagina_id ?>/">
                                                                 <i class="icon-link iconRounded iconMedium"></i>
-                                                                <span>ver projeto</span>
+                                                                <span>ver presente</span>
                                                             </a> 
                                                             <a href="images/blog/<?= $trabalhos->pagina_imagem ?>" class="image-link"  >
                                                                 <i class="icon-search iconRounded iconMedium"></i>
@@ -161,8 +161,9 @@ $pagina->getBlog();
 
                                                     <section class="boxContent">
                                                         <h3><?= stripslashes($trabalhos->pagina_nome) ?></h3>
-                                                        <p> <?= stripslashes(Validacao::cut($trabalhos->pagina_descricao, 150, '...')) ?> <br />
-                                                            <a href="blog/<?= Filter::slug2($trabalhos->pagina_nome) ?>/<?= $trabalhos->pagina_id ?>/" class="moreLink">Leia mais...</a>
+														<h2><?= stripslashes($trabalhos->pagina_autor) ?></h2>
+                                                        <p> <?= stripslashes(Validacao::cut($trabalhos->pagina_descricao, 100, '...')) ?> <br />
+                                                            <a href="blog/<?= Filter::slug2($trabalhos->pagina_nome) ?>/<?= $trabalhos->pagina_id ?>/" class="moreLink">Detalhes do Presente...</a>
                                                         </p>
                                                     </section>
                                                 </div>

@@ -19,6 +19,8 @@ $sobre->getModulo3();
 $portfolio = new Modulo7();
 $portfolio->getModulo7();
 
+$portfolio = new Portfolio();
+
 $contato = new Modulo9();
 $contato->getModulo9();
 
@@ -139,7 +141,7 @@ $pagina->getPagina();
                                                     <?php $data = explode("/", $pagina->pagina_data) ?>
                                                     <ul class="entry-meta">
                                                         <li class="entry-category"><a href="javascript:void(0);" style="cursor:default"><i class="icon-th-list"></i>&nbsp;<?= stripslashes($post->area_nome) ?></a></li>
-                                                        <li class="entry-author"><a href="javascript:void(0);" style="cursor:default"><i class="icon-male"></i>&nbsp;<?= stripslashes($post->pagina_autor) ?></a></li>
+                                                        <li class="entry-author"><a href="javascript:void(0);" style="cursor:default"><i class="icon-money"></i>&nbsp;<?= stripslashes($post->pagina_autor) ?></a></li>
                                                         <li class="entry-comments"><a href="javascript:void(0);" style="cursor:default"><i class="icon-comment-1"></i>&nbsp;<?= $pagina->CountComentario($post->pagina_id) ?> Comentários</a></li>
                                                     </ul>
                                                     <p><?= $post->pagina_descricao ?></p>
@@ -156,10 +158,11 @@ $pagina->getPagina();
 													  <input type="hidden" name="item_quant" value="1" />
 
 														<div class="result"></div>
-														<button name="submit" type="submit" class="btn btn-primary" id="submit"> Presentear</button>
+														<button name="submit" type="submit" class="btn btn-primary" id="submit"> COMPRAR</button>
 
 													</form>
 													<br>
+													<img src="https://stc.pagseguro.uol.com.br/public/img/banners/pagamento/todos_estatico_550_100.gif" alt="Logotipos de meios de pagamento do PagSeguro" title="Este site aceita pagamentos com as principais bandeiras e bancos, saldo em conta PagSeguro e boleto." class="img-responsive">
 													<h2>Compartilhar</h2>
 													<!-- AddToAny BEGIN -->
 													<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -245,13 +248,6 @@ $pagina->getPagina();
                             </div>
                             <!-- Sidebar -->
                             <aside class="col-md-4">
-                                <!-- ==============================================
-                                                     BUSCA
-                                  =============================================== -->
-                                <?php require_once './form_busca.php'; ?>
-                                <!-- ==============================================
-                                                  FIM  BUSCA
-                                  =============================================== -->
 
                                 <!-- ==============================================
                                                  MENU CATEGORIA
@@ -260,6 +256,17 @@ $pagina->getPagina();
                                 <!-- ==============================================
                                                 FIM  MENU CATEGORIA
                                 =============================================== -->
+								<h3>Últimos Presentes</h3>
+								<br>
+								<ul class="list-unstyled worksList">
+									<?php $pagina->getUltimos() ?>
+									<?php if (isset($pagina->db->data[0])): ?>
+										<?php foreach ($pagina->db->data as $work) : ?>
+											<li><a href="blog/<?= Filter::slug2($work->pagina_nome) ?>/<?= $work->pagina_id ?>/" class="tips" title="" data-original-title="<?= stripslashes($work->pagina_nome) ?>"><img src="thumb.php?w=70&h=70&zc=1&src=images/blog/<?= $work->pagina_imagem ?>" alt="..."></a></li>
+										<?php endforeach; ?>
+									<?php endif; ?>
+
+								</ul>
                             </aside>
                             <!-- Sidebar -->
                         </div><!-- row -->

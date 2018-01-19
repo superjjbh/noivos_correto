@@ -114,8 +114,8 @@ $pagina->getBlog();
                                 <h2><?= stripslashes($sobre->modulo3_nome) ?></h2>
 
                                 <div class="mb15">
-                                    <div class="col-md-4">
-                                        <div class="imgBorder"><img src="images/<?= $sobre->modulo3_imagem ?>" alt="" class="img-responsive" /> </div>
+                                    <div class="col-md-6">
+                                        <div class="imgBorder"><img src="thumb.php?w=650&h=450&src=images/<?= $sobre->modulo3_imagem ?>" alt="" class="img-responsive"/> </div>										
                                     </div>
                                     <p class="mb30"><?= stripslashes($sobre->modulo3_descricao)?></p>
 									

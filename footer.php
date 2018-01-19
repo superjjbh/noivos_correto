@@ -6,6 +6,7 @@ $sobre = new Modulo3();
 $sobre->getModulo3();
 
 $portfolio = new Portfolio();
+$pagina = new Pagina();
 
 $rodape = new Modulo11();
 $rodape->getModulo11();
@@ -45,16 +46,17 @@ $pagina = new Pagina();
             <div class="col-md-3 col-sm-6">
                 <div class="footerWidget">
 				<br>
-                    <h3>Últimos Presentes</h3>
+					<h3>Últimos Presentes</h3>
 					<br>
-                    <ul class="list-unstyled iconList">
-                        <?= $pagina->getNews() ?>
-                        <?php if (isset($pagina->db->data[0])) : ?>
-                            <?php foreach ($pagina->db->data as $p): ?>
-                                <li><a href="post/<?= Filter::slug2($p->pagina_nome) ?>/<?= $p->pagina_id ?>/"><?= Validacao::cut(stripslashes($p->pagina_nome), 30, '...') ?></a></li>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </ul>
+					<ul class="list-unstyled worksList">
+						<?php $pagina->getUltimos() ?>
+						<?php if (isset($pagina->db->data[0])): ?>
+							<?php foreach ($pagina->db->data as $work) : ?>
+								<li><a href="blog/<?= Filter::slug2($work->pagina_nome) ?>/<?= $work->pagina_id ?>/" class="tips" title="" data-original-title="<?= stripslashes($work->pagina_nome) ?>"><img src="thumb.php?w=70&h=70&zc=1&src=images/blog/<?= $work->pagina_imagem ?>" alt="..."></a></li>
+							<?php endforeach; ?>
+						<?php endif; ?>
+
+					</ul>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -64,21 +66,13 @@ $pagina = new Pagina();
 					<br>
                     <address>
                         <p>
-                            <i class="icon-location"></i> <?= $contatos->contato_endereco ?><br>
+                            <i class="fa fa-calendar"></i> <?= $contatos->contato_telefone2 ?><br>
+							
+							<i class="icon-location"></i> <?= $contatos->contato_endereco ?><br>
+							
+							<i class="icon-location"></i><?= $contatos->contato_telefone4 ?><br>
                             <?php if (!empty($contatos->contato_telefone1)) : ?>
                                 <i class="icon-phone"></i><?= $contatos->contato_telefone1 ?> <br>
-                            <?php endif; ?>
-                            <?php if (!empty($contatos->contato_telefone2)) : ?>
-                                <i class="icon-phone"></i><?= $contatos->contato_telefone2 ?> <br>
-                            <?php endif; ?>
-                            <?php if (!empty($contatos->contato_telefone3)) : ?>
-                                <i class="icon-phone"></i><?= $contatos->contato_telefone3 ?> <br>
-                            <?php endif; ?>
-                            <?php if (!empty($contatos->contato_telefone4)) : ?>
-                                <i class="icon-phone"></i><?= $contatos->contato_telefone4 ?> <br>
-                            <?php endif; ?>
-                            <?php if (!empty($contatos->contato_telefone5)) : ?>
-                                <i class="icon-phone"></i><?= $contatos->contato_telefone5 ?> <br>
                             <?php endif; ?>
                             <i class="icon-mail-alt"></i><?= $contatos->contato_email ?></a>
                         </p>
@@ -110,19 +104,6 @@ $pagina = new Pagina();
 				<p>	
 				<br>
 				<a href="admin/index.php" target="_blank">admin</a>			
-				<!--Start of Tawk.to Script-->
-				<script type="text/javascript">
-				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-				(function(){
-				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-				s1.async=true;
-				s1.src='https://embed.tawk.to/<?= $contatos->contato_telefone6 ?>/default';
-				s1.charset='UTF-8';
-				s1.setAttribute('crossorigin','*');
-				s0.parentNode.insertBefore(s1,s0);
-				})();
-				</script>
-				<!--End of Tawk.to Script-->
 				</p>
 
             </div>

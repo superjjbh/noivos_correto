@@ -27,6 +27,11 @@
                         <a href="sobre/" class="firstLevel last" id="sobre"><?= stripslashes($menu->modulo2_nome1) ?></a>
                     </li>
                 <?php endif; ?>
+				
+					<li class="sep"></li>
+                    <li class="primary"> 
+                        <a href="equipe/" class="firstLevel last" id="equipe">Padrinhos</a>
+                    </li>
 
                 <?php if ($portfolio->modulo7_status == 1) : ?>
                     <li class="sep"></li>
@@ -48,10 +53,6 @@
                         <a href="contato/" class="firstLevel last" id="contato"><?= stripslashes($menu->modulo2_nome4) ?></a>
                     </li>
                 <?php endif; ?>
-					<li class="sep"></li>
-                    <li class="primary"> 
-                        <a href="equipe/" class="firstLevel last" id="equipe">Padrinhos</a>
-                    </li>
 
             </ul>
             <!-- End main navigation -->

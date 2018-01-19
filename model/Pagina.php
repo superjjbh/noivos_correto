@@ -79,7 +79,17 @@ class Pagina extends Controle {
         $this->select("area", "", "*", "pagina_nome DESC", "INNER JOIN pagina ON (pagina_area = area_id) WHERE area_id = $this->pagina_area", "");
     }
 
-    public function JSON() {
+    /* PRESENTES ULTIMOS 6 RODAPE*/
+    public function getUltimos() {
+        $this->select("pagina", "", "*", "", "ORDER BY pagina_id DESC LIMIT 0,6", "");
+    }
+    /* PRESENTES ULTIMOS 6 RODAPE*/
+
+   /* public function getWork($id) {
+        $this->select("pagina", "", "*", "", "where foto_portfolio = $id", ""); 
+    }*/
+	
+	public function JSON() {
         $this->getJSON("pagina", "pagina_id = '$this->pagina_id'");
     }
 

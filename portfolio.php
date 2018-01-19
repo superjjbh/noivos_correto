@@ -118,7 +118,7 @@ $projeto->getBy();
 
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/">Home</a></li>
-                                    <li><a href="javascript:void(0);">Projeto</a></li>
+                                    <li><a href="javascript:void(0);">Foto</a></li>
                                     <li><a href="javascript:void(0);"><?= stripslashes($projeto->portfolio_nome) ?></a></li>
                                     <li class="active"><?= stripslashes($projeto->area1_nome) ?></li>
                                 </ul>
@@ -144,11 +144,11 @@ $projeto->getBy();
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-4">
-                                        <h2>Descrição do Projeto</h2>
+                                        <h2>Descrição da(s) Foto(s)</h2>
                                         <p><?= stripslashes($projeto->portfolio_descricao) ?></p>
                                     </div>
                                     <div class="col-md-12 col-sm-4">
-                                        <h2>Cliente</h2>
+                                        <h2>Local da(s) Foto(s)</h2>
                                         <p><?= stripslashes($projeto->portfolio_cliente) ?></p>
 									<h2>Compartilhar</h2>
 
@@ -169,14 +169,6 @@ $projeto->getBy();
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
 
-                                    <div class="col-md-12 col-sm-4">
-                                        <br />
-                                        <?php if (!empty($projeto->portfolio_url)): ?>
-                                            <a href="<?= Filter::UrlExternal($projeto->portfolio_url) ?>" target="_blank">
-                                                <button class="btn btn-primary"><i class="fa fa-desktop"></i> Demo</button>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +186,7 @@ $projeto->getBy();
                         <div class="container mt15">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h2>Projetos Relacionados</h2>
+                                    <h2>Fotos Relacionadas</h2>
                                 </div>
                             </div>
                             <div class="row">
@@ -211,11 +203,11 @@ $projeto->getBy();
                                                     <div class="iconLinks"> 
                                                         <a href="projeto/<?= Filter::slug2($rel->portfolio_nome) ?>/<?= $rel->portfolio_id ?>/" title="link" class="sizer portfolioSheet">
                                                             <i class="icon-picture iconRounded iconMedium"></i>
-                                                            <span>Ver Projeto</span>
+                                                            <span>Ver Detalhes</span>
                                                         </a> 
                                                         <a href="images/portfolio/<?= $rel->portfolio_imagem ?>" class="image-link" title="Ampliar imagem" >
                                                             <i class="icon-search iconRounded iconMedium"></i>
-                                                            <span>zoom</span>
+                                                            <span>Ampliar</span>
                                                         </a> 
                                                     </div>
                                                 </div>

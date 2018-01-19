@@ -13,7 +13,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     $mail->From = $smtp->smtp_username;
     $mail->Password = $smtp->smtp_password;
     $mail->FromName = $smtp->smtp_fromname;
-    $mail->Subject = utf8_decode("Contato Via Site " . $site->site_meta_titulo);
+    $mail->Subject = utf8_decode("RSVP - Confirmação de Presença " . $site->site_meta_titulo);
     $mail->AddBCC($smtp->smtp_bcc);
     $mail->AddAddress($smtp->smtp_username);
 
@@ -21,16 +21,21 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
-    $mensagem = $_POST['mensagem'];
-
+    $confirmacao = $_POST['confirmacao'];
+    $acompanha = $_POST['acompanha'];
+	
+	
+	
     $mail->AddReplyTo($email);
-    $body = "<b>Data da Mensagem: </b> $data <br />";
+    $body = "<b>Data da Confirmacao: </b> $data <br />";
     $body .= "<b>Nome:</b> $nome <br />";
     $body .= "<b>Telefone:</b> $telefone <br />";
     $body .= "<b>E-mail:</b> $email <br />";
-    $body .= "<b>Mensagem: </b>$mensagem <br />";
+    $body .= "<b>Confirmacao de Presenca: </b>$confirmacao <br />";
+    $body .= "<b>Acompanhantes: </b>$acompanha <br />";
     $mail->Body = nl2br($body);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -79,8 +84,12 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
         <link type="text/css" rel="stylesheet" href="css/layout.css">
         <link type="text/css" id="colors" rel="stylesheet" href="css/<?= $modulo_aparencia->modulo_aparencia_cor ?>.css">
         <link type="text/css" rel="stylesheet" href="css/custom.css">
+        <link type="text/css" rel="stylesheet" href="css/semi-transparent-buttons.css">
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
         <script src="js/modernizr-2.6.1.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../dest/jquery.countdown.js"></script>
+
         <!-- Favicons
         ================================================== -->
       <link rel="shortcut icon" href="admin/assets/img/ico/favicon.ico?<?= rand(0, 10) ?>">
@@ -172,7 +181,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                             <br>
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <h1>Nossos Destaques</h1>
+                                    <h1>Contagem Regressiva</h1>
                                 </div>
                             </div>
 
@@ -389,6 +398,8 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
 										<?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
+									<br>
+									<a class="semi-transparent-button with-border" href="depoimento/">Enviar Depoimento</a>
                                 </div>
                             </div>
                         </div>
@@ -416,24 +427,36 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     <div class="boxFocus color0">
                                         <form method="post" id="contactfrm" role="form">
 
-                                            <div class="form-group">
-                                                <label for="name">Nome</label>
-                                                <input type="text" class="form-control" name="nome" id="name" placeholder="Informe seu nome" required title="Por favor informe seu nome"/>
-                                            </div>
-											<div class="form-group">
-												<label for="telefone">Telefone</label>
-												<input type="text" class="form-control" name="telefone" id="telefone" required placeholder="Seu telefone" required title="Por favor informe seu telefone"/>
-											</div>
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Informe seu email" required title="Por favor informe um endereço de email válido"/>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="comments">Mensagem</label>
-                                                <textarea name="mensagem" class="form-control" id="comments" cols="3" style="height:60px" rows="3" placeholder="Mensagem…" required title="Por favor informe a mensagem (acima de 10 caracteres)"></textarea>
-                                            </div>
-
+                                    <div class="form-group">
+                                        <label for="name">Você irá comparecer?</label>
+                                        <select class="form-control" name="confirmacao" id="confirmacao" required>
+										<option value="Sim, com certeza">Sim, com certeza</option>
+                                        <option value="Não, respeitosamente">Não, respeitosamente</option>
+										</select>
+                                    </div>
+									<div class="form-group">
+                                        <label for="name">Nome</label>
+                                        <input type="text" class="form-control" name="nome" id="name" placeholder="Seu nome" required title="Por favor informe seu nome"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="text" class="form-control" name="telefone" id="telefone" required placeholder="Seu telefone" required title="Por favor informe seu telefone"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" required placeholder="Seu email" title="Por favor informe um endereço de email válido"/>
+                                    </div>
+									<div class="form-group">
+                                        <label for="comments">Quantos acompanhantes irão com você? Independente se adulto ou criança.</label>
+                                        <select class="form-control" name="acompanha" id="acompanha" required>
+										<option value="Apenas eu">Apenas eu</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+										</select>
+                                    </div>
                                             <div class="result"></div>
                                             <button name="submit" type="submit" class="btn btn-primary" id="submit"> <?= stripslashes($contato->modulo9_button) ?></button>
 
@@ -452,30 +475,37 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     ?> 
                                 </div>
                                 <div class="col-md-3 col-sm-4"  data-nekoanim="fadeInUp" data-nekodelay="200">
-                                    <h4>Endereço:</h4>
+                                    <h2>Data da Cerimônia:</h2>
+                                    <h3>
+                                        <i class="fa fa-calendar"></i> <?= $contatos->contato_telefone2 ?><br />
+                                    </h3>
+									<h2>Endereço da Cerimônia:</h2>
                                     <address>
                                         <i class="icon-location"></i><?= $contatos->contato_endereco ?><br/>
                                     </address>
-                                    <h4>Telefone:</h4>
+									<h2>Endereço da Recepção:</h2>
                                     <address>
-                                        <i class="icon-phone"></i><?= $contatos->contato_telefone2 ?><br />
+                                        <i class="icon-location"></i><?= $contatos->contato_telefone4 ?><br/>
+                                    </address>
+                                    <h2>Nosso Contato:</h2>
+                                    <address>
 										<i class="icon-phone"></i><?= $contatos->contato_telefone1 ?><br />
                                     </address>
-                                    <h4>Visitas:</h4>
-							<?
-								$txt		= "contador.txt";
-								$arquivo	= fopen($txt,"a+");
-								$visitas	= fgets($arquivo,1024);
-								fclose($arquivo);
+                                    <h2>Visitas:</h2>
+										<?
+										$txt		= "contador.txt";
+										$arquivo	= fopen($txt,"a+");
+										$visitas	= fgets($arquivo,1024);
+										fclose($arquivo);
 
-								$arquivo	= fopen($txt,"r+");
-								$visitas	= $visitas + 1;
-								fwrite($arquivo,$visitas);
-								fclose($arquivo);
-								   
-								echo "Este site foi visitado $visitas vez(es)";
-							?>
-                                </div>
+										$arquivo	= fopen($txt,"r+");
+										$visitas	= $visitas + 1;
+										fwrite($arquivo,$visitas);
+										fclose($arquivo);
+										   
+										echo "Esta página foi visitada $visitas vezes";
+										?>                                
+									</div>
 								<br>
                             </div>
                         </div>
