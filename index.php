@@ -369,10 +369,11 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                     $depoimentos->getDepoimentos();
                  ?>
                 <?php if (isset($depoimentos->db->data[0])): ?>
+
                 <!-- ==============================================
                                 DEPOIMENTOs
                  =============================================== -->                                                  
-                <section id="paralaxSlice3" data-stellar-background-ratio="0.5">
+				<section id="paralaxSlice3" data-stellar-background-ratio="0.5">
                     <div class="maskParent">
                         <div class="paralaxMask"></div>
                         <div class="paralaxText container" data-nekoanim="fadeIn" data-nekodelay="50">
@@ -380,21 +381,20 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                 <div class="col-md-12">
                                     <div class="owl-carousel nekoDataOwl" data-neko_items="1" data-neko_singleitem="true" data-neko_paginationnumbers="true" data-neko_transitionstyle="fade">
                                         <?php foreach ($depoimentos->db->data as $d): ?>
-                                        <div class="item">
-										<?php if ($d->depoimento_status == 1) : ?>
+                                        <?php if ($d->depoimento_status == "SIM") : ?>
+										<div class="item">
                                             <img src="thumb.php?w=600&h=400&zc=1&src=images/team/<?= $d->depoimento_imagem ?>" class="img-circle mb15" alt="client">
                                             <blockquote> <?= Validacao::cut(stripslashes($d->depoimento_sobre),200,'...') ?><br/><small><?= stripslashes($d->depoimento_nome) ?></small></blockquote>
                                         </div>
 										<?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </section>
-                <?php endif; ?>                
+                </section>                <?php endif; ?>                
                 <?php endif; ?>
                 <!-- parallax testimonial --> 
 

@@ -19,7 +19,7 @@ function incluir() {
         $depoimento->enviar();
     }
     $depoimento->incluir();
-    Filter :: redirect("index.php");
+    Filter :: redirect("depoimento_fechar.php");
 }
 
 function atualizar() {

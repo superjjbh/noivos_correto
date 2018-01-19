@@ -32,7 +32,31 @@ $pagina = new Pagina();
 $pagina->pagina_id = "$pagina_id";
 $pagina->getPagina();
 
-$portfolio = new Portfolio();
+if (isset($_POST['email']) && !empty($_POST['email'])) {
+    require_once './plugin/email/email.php';
+    global $mail;
+    $smtp = new Smtpr();
+    $smtp->getSmtp();
+    $mail->Port = $smtp->smtp_port;
+    $mail->Host = $smtp->smtp_host;
+    $mail->Username = $smtp->smtp_username;
+    $mail->From = $smtp->smtp_username;
+    $mail->Password = $smtp->smtp_password;
+    $mail->FromName = $smtp->smtp_fromname;
+    $mail->Subject = utf8_decode("Novo Depoimento no Site " . $site->site_meta_titulo);
+    $mail->AddBCC($smtp->smtp_bcc);
+    $mail->AddAddress($smtp->smtp_username);
+
+    $data = date('d/m/Y H:i');
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+
+    $mail->AddReplyTo($email);
+    $body = "<b>Data do Depoimento: </b> $data <br />";
+    $body .= "<b>Importante:</b> $nome <br />";
+    $body .= "<b>Caminho:</b> $email <br />";
+    $mail->Body = nl2br($body);
+}
 
 ?>
 <!DOCTYPE html>
@@ -112,8 +136,8 @@ $portfolio = new Portfolio();
                                 <p><?= stripslashes($blog->modulo10_subtitulo) ?></p>
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/">Home</a></li>
-                                    <li><a href="blog/">Depoimentos sobre os noivos</a></li>
-                                    <li class="active">Depoimentos</li>
+                                    <li><a href="blog/">Lista de Presentes</a></li>
+                                    <li class="active">Presente</li>
                                 </ul>
                             </div>
                         </div>
@@ -135,39 +159,31 @@ $portfolio = new Portfolio();
                                  =============================================== -->
                                 <hr>
                                 <section class="clearfix comments pt30">
-                                    <h3 class="commentNumbers">Depoimentos sobre os noivos</h3>
+                                    <h3 class="commentNumbers">Confirmação!</h3>
 
                       
                                     <hr>
-                                    <h3 class="commentNumbers">Deixe um depoimento</h3>
-                                    <form enctype="multipart/form-data" method="post" action="depoimento_fn.php?acao=incluir">
-										<input type="hidden" name="redirect" value="depoimento_fechar.php">
-                                            <div class="form-group">
-                                                <label class="control-label">Nome</label>
-                                                <input class="form-control rounded" type="text" id="depoimento_nome"  name="depoimento_nome" required>
-                                            </div>
+                                    <h3 class="commentNumbers">Sua mensagem será enviada e será avaliada pelos noivos, caso seja aceita, a mesma será publicada no site dos noivos! Confirme o envio pelo botão abaixo!</h3>
+                                        <form method="post" id="contactfrm" role="form">
+										<input type="hidden" name="nome" id="nome" value="Um novo depoimento foi enviado! Confira o no seu painel de controle e publique ou não depoimento.">
+										<input type="hidden" name="email" id="email" value="Menu > Depoimento > Listar Depoimentos">
 
-                                            <div class="form-group">
-                                                <label class="control-label">Parentesco</label>
-                                                <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="control-label">Depoimento</label>
-                                                <textarea class="form-control rounded" type="text" id="depoimento_sobre" name="depoimento_sobre"></textarea>
-                                            </div>
-											
-                                            <div class="form-group">
-                                                <label class="control-label">Foto</label>
-                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                                    <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><input type="file" id="depoimento_imagem" name="depoimento_imagem"></span>
-                                                    
-                                                </div>
-                                            </div>
-                                        <button class="btn btn-primary" type="submit">Cadastrar</button>
-                                        <input type="hidden" name="depoimento_status" value="0">
-                                    </form>
+                                            <div class="result"></div>
+                                            <button name="submit" type="submit" class="btn btn-primary" id="submit"> CONFIRMAR O DEPOIMENTO!!</button>
+
+                                        </form>
+                                    </div>
+                                    <?php
+                                    if (isset($_POST['email']) && !empty($_POST['email'])) {
+                                        if ($mail->Send()) {
+                                            echo "<p class='alert alert-success' id='msg_alert'> <strong>Obrigado !</strong> Sua Mensagem foi entregue.</p>";
+                                        } else {
+                                            echo "<p class='alert alert-danger' id='msg_alert'> Erro ao enviar  Mensagem: $mail->ErrorInfo</p>";
+                                        }
+                                    }
+                                    $contatos = new Contato();
+                                    $contatos->getContato();                                    
+                                    ?> 
 									                               </section>
                                 <!-- ==============================================
                                                   FIM  COMENTÁRIO
@@ -175,40 +191,6 @@ $portfolio = new Portfolio();
                             </div>
                             <!-- Sidebar -->
                             <aside class="col-md-4">
-                                <!-- ==============================================
-                                                     BUSCA
-                                  =============================================== -->
-								<h3>Últimas Fotos</h3>
-								<br>
-								<ul class="list-unstyled worksList">
-									<?php $portfolio->getUltimos() ?>
-									<?php if (isset($portfolio->db->data[0])): ?>
-										<?php foreach ($portfolio->db->data as $work) : ?>
-											<li><a href="projeto/<?= Filter::slug2($work->portfolio_nome) ?>/<?= $work->portfolio_id ?>/" class="tips" title="" data-original-title="<?= stripslashes($work->portfolio_nome) ?>"><img src="thumb.php?w=70&h=70&zc=1&src=images/portfolio/<?= $work->portfolio_imagem ?>" alt="..."></a></li>
-										<?php endforeach; ?>
-									<?php endif; ?>
-
-								</ul>
-                                <!-- ==============================================
-                                                  FIM  BUSCA
-                                  =============================================== -->
-								<br>	
-                                <!-- ==============================================
-                                                 MENU CATEGORIA
-                                 =============================================== -->
-								<h3>Últimos Presentes</h3>
-								<br>
-								<ul class="list-unstyled iconList">
-									<?= $pagina->getNews() ?>
-									<?php if (isset($pagina->db->data[0])) : ?>
-										<?php foreach ($pagina->db->data as $p): ?>
-											<li><a href="post/<?= Filter::slug2($p->pagina_nome) ?>/<?= $p->pagina_id ?>/"><?= Validacao::cut(stripslashes($p->pagina_nome), 30, '...') ?></a></li>
-										<?php endforeach; ?>
-									<?php endif; ?>
-								</ul>
-                                <!-- ==============================================
-                                                FIM  MENU CATEGORIA
-                                =============================================== -->
                             </aside>
                             <!-- Sidebar -->
                         </div><!-- row -->

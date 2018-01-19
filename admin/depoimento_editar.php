@@ -140,10 +140,12 @@ $editar->getDepoimento();
                                             </div>
 											
                                             <div class="form-group">
-                                                <label class="control-label">Publicado</label>
+                                                <label class="control-label">Publicado: <?= stripslashes($editar->depoimento_status) ?></label><br>
+                                                <label class="control-label">Alterar publicação</label>
                                                 <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
-                                                    <option value="1">Sim</option>
-                                                    <option value="0">Não</option>
+                                                    <option value="">Escolha uma opção...</option>
+													<option value="SIM">Sim</option>
+                                                    <option value="NÃO">Não</option>
                                                 </select>
                                             </div>
 
