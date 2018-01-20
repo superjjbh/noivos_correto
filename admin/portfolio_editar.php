@@ -98,7 +98,7 @@ $work->getPortfolio();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-list"></i> Portfólio<span></span></h2>
+                    <h2><i class="fa fa-list"></i> Álbum de Fotos<span></span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -108,7 +108,7 @@ $work->getPortfolio();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Portfólio</a>
+                                <a href="#">Álbum de Fotos</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -125,7 +125,7 @@ $work->getPortfolio();
                             <!-- Start input fields - basic form -->
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Projeto</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Álbum de Fotos</strong></p></div>
                                 </div><!-- /.panel-subheading -->
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
@@ -134,7 +134,7 @@ $work->getPortfolio();
                                             <div class="form-group ">
                                                 <label for="portfolio_area1" class="control-label">Categoria</label>
                                                 <select data-placeholder="Obrigatório selecionar a área" id="portfolio_area1" name="portfolio_area1" class="form-control input-sm mb-15" required>
-                                                    <option value="">Selecione a Área</option>
+                                                    <option value="">Selecione a Categoria</option>
                                                     <?php if (isset($area1->db->data[0])): ?>
                                                         <?php foreach ($area1->db->data as $categoria): ?>
                                                     <option value="<?= $categoria->area1_id ?>"><?= stripslashes($categoria->area1_nome)?></option>
@@ -144,23 +144,18 @@ $work->getPortfolio();
                                             </div><!-- /.form-group --><!-- /.form-group -->
 
                                             <div class="form-group">
-                                                <label class="control-label">Título do Projeto</label>
+                                                <label class="control-label">Título da Foto/Galeria</label>
                                                 <input class="form-control rounded" type="text" id="portfolio_nome"  name="portfolio_nome" required value="<?= stripslashes($work->portfolio_nome )?>">
                                             </div><!-- /.form-group -->
                                             
                                             <div class="form-group">
-                                                <label class="control-label">Cliente</label>
+                                                <label class="control-label">Local da Foto</label>
                                                 <input class="form-control" type="text" id="portfolio_cliente"  name="portfolio_cliente" value="<?= stripslashes($work->portfolio_cliente) ?>" />
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Data</label>
+                                                <label class="control-label">Data da Foto/Galeria</label>
                                                 <input type="text" class="form-control" id="portfolio_data" name="portfolio_data" value="<?= $work->portfolio_data ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="control-label">Link do Projeto</label>
-                                                <input type="text" class="form-control" id="portfolio_url" name="portfolio_url" value="<?= $work->portfolio_url ?>">
                                             </div>
 
                                             <div class="form-group">

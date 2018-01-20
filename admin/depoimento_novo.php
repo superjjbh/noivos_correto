@@ -127,7 +127,7 @@ $area->getAreas();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Empresa</label>
+                                                <label class="control-label">Parentesco</label>
                                                 <input class="form-control rounded" type="text" id="depoimento_cargo"  name="depoimento_cargo">
                                             </div>
                                             
@@ -139,8 +139,9 @@ $area->getAreas();
                                             <div class="form-group">
                                                 <label class="control-label">Publicado</label>
                                                 <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
-                                                    <option value="1">Sim</option>
-                                                    <option value="0">Não</option>
+                                                    <option value="">Escolha uma opção...</option>
+													<option value="SIM">Sim</option>
+                                                    <option value="NÃO">Não</option>
                                                 </select>
                                             </div>
 

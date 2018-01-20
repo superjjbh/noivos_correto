@@ -92,7 +92,7 @@ $site->getMeta();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-wrench"></i>  Portfólio <span></span></h2>
+                    <h2><i class="fa fa-wrench"></i>  Álbum de Fotos <span></span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -102,7 +102,7 @@ $site->getMeta();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Portfólio</a>
+                                <a href="#">Álbum de Fotos</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -118,7 +118,7 @@ $site->getMeta();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Projeto</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Álbum de Fotos</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
@@ -137,22 +137,17 @@ $site->getMeta();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Título do Projeto</label>
+                                                <label class="control-label">Título do Foto/Galeria</label>
                                                 <input class="form-control" type="text" id="portfolio_nome"  name="portfolio_nome" required />
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="control-label">Cliente</label>
+                                                <label class="control-label">Local da Foto</label>
                                                 <input class="form-control" type="text" id="portfolio_cliente"  name="portfolio_cliente" />
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="control-label">Link do Projeto</label>
-                                                <input class="form-control" type="text" id="portfolio_url"  name="portfolio_url" />
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="control-label">Data</label>
+                                                <label class="control-label">Data da Foto/Galeria</label>
                                                 <input type="text" class="form-control" id="portfolio_data" name="portfolio_data" />
                                             </div>
 
