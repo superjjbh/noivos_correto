@@ -53,6 +53,10 @@
                         <a href="contato/" class="firstLevel last" id="contato"><?= stripslashes($menu->modulo2_nome4) ?></a>
                     </li>
                 <?php endif; ?>
+					<li class="sep"></li>
+                    <li class="primary"> 
+                        <a href="app/app-joao-maria.apk" class="firstLevel last" id="equipe">Baixe o App</a>
+                    </li>
 
             </ul>
             <!-- End main navigation -->
