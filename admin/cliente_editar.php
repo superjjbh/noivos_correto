@@ -130,8 +130,18 @@ $cliente->getCliente();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Pai/Mãe de</label>
-                                                <input class="form-control rounded" type="text" id="cliente_subtitulo"  name="cliente_subtitulo" value="<?= stripslashes($cliente->cliente_subtitulo) ?>" />
+                                                
+												
+											<h4 class="media-heading text-capitalize"> Categoria: <b><?= stripslashes($cliente->cliente_subtitulo) ?></b> </h4>
+                                                <br>
+                                                <label class="control-label">Categoria</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="cliente_subtitulo" name="cliente_subtitulo" style="text-transform: uppercase;" required>
+                                                    <option value="">Confirme a Categoria, mesmo que seja a atual...</option>
+                                                    <option value="Pai da Noiva">Pai da Noiva</option>
+													<option value="Pai do Noivo">Pai do Noivo</option>
+                                                    <option value="Mãe da Noiva">Mãe da Noiva</option>
+													<option value="Mãe do Noivo">Mãe do Noivo</option>
+                                                </select>
                                             </div>
 
                                             <div class="form-group">
@@ -149,8 +159,6 @@ $cliente->getCliente();
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
                                                 </div>
                                             </div>
-
-
                                             <div class="form-footer">
                                                 <div class="pull-right">
                                                     <button class="btn btn-primary" type="submit">Atualizar</button>

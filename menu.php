@@ -46,7 +46,7 @@
                         <a href="blog/" class="firstLevel last" id="posts"><?= stripslashes($menu->modulo2_nome3) ?></a>
                     </li>
                 <?php endif; ?>
-
+				
                 <?php if ($contato->modulo9_status == 1): ?>
                     <li class="sep"></li>
                     <li class="primary">

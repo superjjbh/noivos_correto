@@ -147,32 +147,36 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-4">
-                                <h4>Endereço da cerimônia:</h4>
-                                <address>
-                                    <?= $contatos->contato_endereco ?> <br/>
-									<a href="contato/#mapWrapper">VER MAPA</a>
-                                </address>
-
-                                <h4>Telefone:</h4>
-                                <?php if (!empty($contatos->contato_telefone1)) : ?>
+                                    <h2>Data da Cerimônia:</h2>
+                                    <h3>
+                                        <i class="fa fa-calendar"></i> <?= $contatos->contato_telefone2 ?><br />
+                                    </h3>
+									<h2>Endereço da Cerimônia:</h2>
                                     <address>
-                                        <?= $contatos->contato_telefone1 ?><br/>
+                                        <i class="icon-location"></i><?= $contatos->contato_endereco ?><br/>
                                     </address>
-                                <?php endif; ?>
-                                <?php if (!empty($contatos->contato_telefone2)) : ?>
+									<h2>Endereço da Recepção:</h2>
                                     <address>
-                                        <?= $contatos->contato_telefone2 ?><br/>
+                                        <i class="icon-location"></i><?= $contatos->contato_telefone4 ?><br/>
                                     </address>
-                                <?php endif; ?>
-								<h4>Data do Casamento:</h4>
-                                <address>
-                                    <?= $contatos->contato_telefone3 ?> / <?= $contatos->contato_telefone4 ?> / <?= $contatos->contato_telefone5 ?> <br/><br/>
-                                </address>
+                                    <h2>Nosso Contato:</h2>
+                                    <address>
+										<i class="icon-phone"></i><?= $contatos->contato_telefone1 ?><br />
+                                    </address>
 								<div class="col-md-12">
 							</div>
                             </div>
                             <form method="post" id="contactfrm" role="form">
                                 <div class="col-sm-4"> 
+                            <?php
+                            if (isset($_POST['email']) && !empty($_POST['email'])) {
+                                if ($mail->Send()) {
+                                    echo "<p class='alert alert-success' id='msg_alert'> <strong>Obrigado !</strong> Sua Mensagem foi entregue.</p>";
+                                } else {
+                                    echo "<p class='alert alert-danger' id='msg_alert'> Erro ao enviar  Mensagem: $mail->ErrorInfo</p>";
+                                }
+                            }
+                            ?> 
                                     <div class="form-group">
                                         <label for="name">Você irá comparecer?</label>
                                         <select class="form-control" name="confirmacao" id="confirmacao" required>
@@ -203,7 +207,13 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                         <option value="5">5</option>
 										</select>
                                     </div>
+                                    <div class="form-group">
+                                    <button name="submit" type="submit" class="btn btn-lg" id="submit" > Confirmar Presença</button>
+                                    </div>
+                                <div class="col-md-8 col-md-offset-4">
+                                </div>
 
+                            </form>
                                 </div>
                                 <div class="col-sm-4" align="center">
                                  <img src="thumb.php?h=110&src=images/<?= $modulo_aparencia->modulo_aparencia_logo ?>" alt="" id="footerLogo" class="img-responsive">
@@ -224,21 +234,6 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
 								</p>
 
 								</div>                        
-                                <div class="col-md-8 col-md-offset-4">
-                                    <div class="result"></div>
-                                    <button name="submit" type="submit" class="btn btn-lg" id="submit"> Enviar</button>
-                                </div>
-
-                            </form>
-                            <?php
-                            if (isset($_POST['email']) && !empty($_POST['email'])) {
-                                if ($mail->Send()) {
-                                    echo "<p class='alert alert-success' id='msg_alert'> <strong>Obrigado !</strong> Sua Mensagem foi entregue.</p>";
-                                } else {
-                                    echo "<p class='alert alert-danger' id='msg_alert'> Erro ao enviar  Mensagem: $mail->ErrorInfo</p>";
-                                }
-                            }
-                            ?> 
                         </div>
                     </div>
                     <div id="mapWrapper" class="mt30"></div>

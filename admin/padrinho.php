@@ -80,7 +80,7 @@ $area->getAreas();
             <?php require_once './menu.php'; ?>
             <section id="page-content">
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i> <span>Padrinhos Cadastrados</span></h2>
+                    <h2><i class="fa fa-users"></i> <span>Padrinhos, damas, florista e pajem cadastrados</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -90,7 +90,7 @@ $area->getAreas();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Nossos Padrinhos</a>
+                                <a href="#">Nossos padrinhos, damas, florista e pajem</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -110,7 +110,8 @@ $area->getAreas();
                                         <div class="gallery-author">
                                             <div class="media">
                                                 <div class="media-body text-center">
-                                                    <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->padrinho_nome) ?> </h4>
+                                                    <h3 class="media-heading text-capitalize"> <?= stripslashes($listar->padrinho_nome) ?> </h3>
+													<h4 class="media-heading text-capitalize"> <?= stripslashes($listar->padrinho_subtitulo) ?> </h4>
                                                 </div>
                                             </div>
                                         </div>

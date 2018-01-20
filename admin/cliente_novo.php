@@ -127,8 +127,14 @@ $area->getAreas();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Pai/Mãe de</label>
-                                                <input class="form-control rounded" type="text" id="cliente_subtitulo"  name="cliente_subtitulo" />
+                                                <label class="control-label">Categoria</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="cliente_subtitulo" name="cliente_subtitulo" style="text-transform: uppercase;" required>
+                                                    <option value="">Escolha uma opção...</option>
+                                                    <option value="Pai da Noiva">Pai da Noiva</option>
+													<option value="Pai do Noivo">Pai do Noivo</option>
+                                                    <option value="Mãe da Noiva">Mãe da Noiva</option>
+													<option value="Mãe do Noivo">Mãe do Noivo</option>
+                                                </select>
                                             </div>
 
                                             <div class="form-group">

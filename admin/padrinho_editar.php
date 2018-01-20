@@ -92,7 +92,7 @@ $padrinho->getPadrinho();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Equipe</span></h2>
+                    <h2><i class="fa fa-users"></i>  <span>Padrinhos, damas, florista e pajem</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -102,7 +102,7 @@ $padrinho->getPadrinho();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Equipe</a>
+                                <a href="#">Padrinhos, damas, florista e pajem</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -118,7 +118,7 @@ $padrinho->getPadrinho();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Membro</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Padrinhos, damas, florista e pajem</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
@@ -131,8 +131,18 @@ $padrinho->getPadrinho();
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Cargo</label>
-                                                <input class="form-control rounded" type="text" id="padrinho_subtitulo"  name="padrinho_subtitulo" value="<?= stripslashes($padrinho->padrinho_subtitulo) ?>" />
+											<h4 class="media-heading text-capitalize"> Categoria: <b><?= stripslashes($padrinho->padrinho_subtitulo) ?></b> </h4>
+                                                <br>
+                                                <label class="control-label">Categoria</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="padrinho_subtitulo" name="padrinho_subtitulo" style="text-transform: uppercase;" required>
+                                                    <option value="">Confirme a Categoria, mesmo que seja a atual...</option>
+                                                    <option value="Padrinhos da Noiva">Padrinhos da Noiva</option>
+													<option value="Padrinhos do Noivo">Padrinhos do Noivo</option>
+													<option value="Pajem">Pajem</option>
+													<option value="Damas">Damas</option>
+													<option value="Florista">Florista</option>
+													<option value="Convidado especial">Convidado especial</option>
+                                                </select>
                                             </div>
 
                                             <div class="form-group">

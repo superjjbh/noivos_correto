@@ -171,9 +171,9 @@ $editar->getDepoimento();
                                             <div class="form-group">
 											<h4 class="media-heading text-capitalize"> Publicado: <b><?= stripslashes($editar->depoimento_status) ?></b> </h4>
                                                 <br><br>
-                                                <label class="control-label">Alterar publicação</label>
-                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;">
-                                                    <option value="">Escolha uma opção...</option>
+                                                <label class="control-label">Confirmar publicação</label>
+                                                <select class="form-control input-sm mb-15 rounded" id="depoimento_status" name="depoimento_status" style="text-transform: uppercase;" required>
+                                                    <option value="">Confirme a publicação, mesmo que seja a opção atual...</option>
 													<option value="SIM">Sim</option>
                                                     <option value="NÃO">Não</option>
                                                 </select>

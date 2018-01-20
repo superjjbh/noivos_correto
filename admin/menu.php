@@ -58,7 +58,7 @@ $status0 = new Comment();
                 <li class="listardepoimento"><a href="depoimentos/">Listar Depoimentos</a></li>
             </ul>
         </li>
-        <li class="submenu clientenovo listar">
+        <li class="submenu clientenovo listarpais">
             <a href="javascript:void(0);">
                 <span class="icon"><i class="fa fa-users"></i></span>
                 <span class="text">Nossos Pais</span>
@@ -66,18 +66,18 @@ $status0 = new Comment();
             </a>
             <ul>
                 <li class="clientenovo"><a href="equipe/novo/">Novo Pai/Mãe</a></li>
-                <li class="listar"><a href="equipe/">Listar Pais</a></li>
+                <li class="listarpais"><a href="equipe/">Listar Pais</a></li>
             </ul>
         </li>
-        <li class="submenu padrinhonovo listar">
+        <li class="submenu padrinhonovo listarpadrinho">
             <a href="javascript:void(0);">
                 <span class="icon"><i class="fa fa-users"></i></span>
                 <span class="text">Nossos Padrinhos</span>
                 <span class="arrow"></span>
             </a>
             <ul>
-                <li class="padrinhonovo"><a href="padrinho/novo/">Novo Padrinho/Madrinha</a></li>
-                <li class="listarpadrinho"><a href="padrinho/">Listar Padrinhos</a></li>
+                <li class="padrinhonovo"><a href="padrinho/novo/">Novos Padrinhos/Dama...</a></li>
+                <li class="listarpadrinho"><a href="padrinho/">Listar Padrinhos/Dama...</a></li>
             </ul>
         </li>
         <li class="submenu blognovo listarblog categoria blogeditar comentario">

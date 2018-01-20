@@ -110,8 +110,8 @@ $area->getAreas();
                                         <div class="gallery-author">
                                             <div class="media">
                                                 <div class="media-body text-center">
-                                                    <h4 class="media-heading text-capitalize"> <?= stripslashes($listar->cliente_nome) ?> </h4>
-                                                    <span class="text-capitalize"> Pai/Mãe de: <?= stripslashes($listar->cliente_subtitulo) ?></span>
+                                                    <h3 class="media-heading text-capitalize"> <?= stripslashes($listar->cliente_nome) ?> </h3>
+                                                    <h4 class="media-heading text-capitalize"><?= stripslashes($listar->cliente_subtitulo) ?></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +178,7 @@ $area->getAreas();
                         type: "default"});
                 });
 <?php endif; ?>
-            $('.listar').addClass('active');
+            $('.listarpais').addClass('active');
             $('.delete').on('click', function () {
                 var url = $(this).attr('data-url');
                 $('#MODALREMOVE').modal('show');

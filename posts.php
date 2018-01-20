@@ -161,7 +161,7 @@ $pagina->getBlog();
 
                                                     <section class="boxContent">
                                                         <h3><?= stripslashes($trabalhos->pagina_nome) ?></h3>
-														<h2><?= stripslashes($trabalhos->pagina_autor) ?></h2>
+														<h2>R$ <?= stripslashes($trabalhos->pagina_autor) ?></h2>
                                                         <p> <?= stripslashes(Validacao::cut($trabalhos->pagina_descricao, 100, '...')) ?> <br />
                                                             <a href="blog/<?= Filter::slug2($trabalhos->pagina_nome) ?>/<?= $trabalhos->pagina_id ?>/" class="moreLink">Detalhes do Presente...</a>
                                                         </p>

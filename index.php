@@ -286,7 +286,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     </div>
                                     <div class="boxContent">
                                         <h3><?= stripslashes($work->portfolio_nome) ?></h3>
-                                        <p><?= stripslashes(Validacao::cut(stripslashes($work->portfolio_descricao), 100, '...')) ?><br>
+                                        <p>Local da Foto: <?= stripslashes(Validacao::cut(stripslashes($work->portfolio_cliente), 100, '...')) ?><br>
                                             <a href="projeto/<?= Filter::slug2($work->portfolio_nome) ?>/<?= $work->portfolio_id ?>/" class="moreLink">Leia mais ...</a>
                                         </p>
                                     </div>
@@ -352,8 +352,8 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                                     <article>
                                                         <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->cliente_imagem ?>" alt="" class="img-responsive"></div>
                                                         <div class="boxContent text-center">
-                                                            <h3><?= stripslashes($e->cliente_nome) ?></h3>
-                                                            <p><?= stripslashes($e->cliente_subtitulo) ?></p>
+                                                            <h2><?= stripslashes($e->cliente_nome) ?></h2>
+                                                            <h4><?= stripslashes($e->cliente_subtitulo) ?></h4>
 															<p><?= stripslashes($e->cliente_descricao) ?></p>
                                                         </div>
                                                     </article>
@@ -420,10 +420,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     <h1><?= stripslashes($contato->modulo9_nome) ?></h1>
                                     <h2 class="subTitle"><?= stripslashes($contato->modulo9_subtitulo) ?></h2>
                                 </div>
-                                <div class="col-md-4 mb15" data-nekoanim="fadeInUp" data-nekodelay="0">
-                                    <div id="mapWrapper"></div>
-                                </div>
-                                <div class="col-md-5 col-sm-8"  data-nekoanim="fadeInUp" data-nekodelay="100">
+                                <div class="col-md-4 col-sm-8"  data-nekoanim="fadeInUp" data-nekodelay="100">
                                     <div class="boxFocus color0">
                                         <form method="post" id="contactfrm" role="form">
 
@@ -474,6 +471,9 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
                                     $contatos->getContato();                                    
                                     ?> 
                                 </div>
+                                <div class="col-md-5 mb15" data-nekoanim="fadeInUp" data-nekodelay="0">
+                                    <div id="mapWrapper"></div>
+                                </div>
                                 <div class="col-md-3 col-sm-4"  data-nekoanim="fadeInUp" data-nekodelay="200">
                                     <h2>Data da Cerimônia:</h2>
                                     <h3>
@@ -503,7 +503,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
 										fwrite($arquivo,$visitas);
 										fclose($arquivo);
 										   
-										echo "Esta página foi visitada $visitas vezes";
+										echo "$visitas visitantes já conferiram nossa história de amor!";
 										?>                                
 									</div>
 								<br>

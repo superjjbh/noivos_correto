@@ -221,7 +221,7 @@ $area->getAreas();
 
     </body>
     <script>
-        $('.Postnovo').addClass('active');
+        $('.blognovo').addClass('active');
 
         $(document).ready(function () {
             $('#pagina_descricao').summernote({

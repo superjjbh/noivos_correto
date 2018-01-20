@@ -133,8 +133,8 @@ $pagina->getBlog();
                             <div class="container">
                                 <div class="row"> 
                                     <div class="col-md-12 mb40 text-center">
-                                        <h1>Nossos Padrinhos</h1>
-                                        <h2 class="subTitle">Conheça nossos Padrinhos</h2>
+                                        <h1>Nossos padrinhos, damas, florista e pajem</h1>
+                                        <h2 class="subTitle">.Pessoas muito especiais que escolhemos com todo carinho e amor.</h2>
                                     </div>
                                     <section class="col-md-12">
                                         <div class="row mb15">
@@ -144,7 +144,7 @@ $pagina->getBlog();
                                                         <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->padrinho_imagem ?>" alt="" class="img-responsive"></div>
                                                         <div class="boxContent text-center">
                                                             <h3><?= stripslashes($e->padrinho_nome) ?></h3>
-                                                            <p><?= stripslashes($e->padrinho_subtitulo) ?></p>
+                                                            <h4><?= stripslashes($e->padrinho_subtitulo) ?><h4/>
 															<p><?= stripslashes($e->padrinho_descricao) ?></p>
                                                         </div>
                                                     </article>

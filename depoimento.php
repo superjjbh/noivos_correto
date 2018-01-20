@@ -133,7 +133,6 @@ $portfolio = new Portfolio();
                                 <!-- ==============================================
                                                    COMENTÁRIO
                                  =============================================== -->
-                                <hr>
                                 <section class="clearfix comments pt30">
                                     <h2 class="commentNumbers">Depoimentos sobre os noivos</h2>
                                     <hr>
@@ -196,13 +195,14 @@ $portfolio = new Portfolio();
                                  =============================================== -->
 								<h3>Últimos Presentes</h3>
 								<br>
-								<ul class="list-unstyled iconList">
-									<?= $pagina->getNews() ?>
-									<?php if (isset($pagina->db->data[0])) : ?>
-										<?php foreach ($pagina->db->data as $p): ?>
-											<li><a href="post/<?= Filter::slug2($p->pagina_nome) ?>/<?= $p->pagina_id ?>/"><?= Validacao::cut(stripslashes($p->pagina_nome), 30, '...') ?></a></li>
+								<ul class="list-unstyled worksList">
+									<?php $pagina->getUltimos() ?>
+									<?php if (isset($pagina->db->data[0])): ?>
+										<?php foreach ($pagina->db->data as $work) : ?>
+											<li><a href="blog/<?= Filter::slug2($work->pagina_nome) ?>/<?= $work->pagina_id ?>/" class="tips" title="" data-original-title="<?= stripslashes($work->pagina_nome) ?>"><img src="thumb.php?w=70&h=70&zc=1&src=images/blog/<?= $work->pagina_imagem ?>" alt="..."></a></li>
 										<?php endforeach; ?>
 									<?php endif; ?>
+
 								</ul>
                                 <!-- ==============================================
                                                 FIM  MENU CATEGORIA

@@ -8,7 +8,7 @@
   background: #fff; /* fallback color for old browsers */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  color: #000;
+  color: #fff;
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
