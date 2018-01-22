@@ -25,6 +25,9 @@
                     <li class="sep"></li>
                     <li class="primary"> 
                         <a href="sobre/" class="firstLevel last" id="sobre"><?= stripslashes($menu->modulo2_nome1) ?></a>
+						<ul class="sub-menu clearfix">
+						<li><a href="#">Sub</a>
+						</ul>
                     </li>
                 <?php endif; ?>
 				

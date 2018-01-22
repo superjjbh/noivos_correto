@@ -242,6 +242,29 @@ ul.quickMenu li a:hover {color:#555;}
 
 .navbar-nav li.hover>a {color:#CE556C;}
 
+.sub-menu {
+    margin: 0;
+    padding: 0;
+}
+.clearfix:after{
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.navbar-nav,
+.sub-menu {
+    list-style: none;
+    background: #000;
+}
+.sub-menu {
+    background: #444;
+}
 /*** mega menu ***/
 .nekoMegaMenu {background:#fff;}
 
