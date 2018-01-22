@@ -141,7 +141,6 @@ $padrinho->getPadrinho();
 													<option value="Pajem">Pajem</option>
 													<option value="Dama">Dama</option>
 													<option value="Florista">Florista</option>
-													<option value="Convidado especial">Convidado especial</option>
                                                 </select>
                                             </div>
 

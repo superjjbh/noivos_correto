@@ -133,15 +133,14 @@ $area->getAreas();
                                                     <option value="Padrinhos da Noiva">Padrinhos da Noiva</option>
 													<option value="Padrinhos do Noivo">Padrinhos do Noivo</option>
 													<option value="Pajem">Pajem</option>
-													<option value="Damas">Damas</option>
+													<option value="Dama">Dama</option>
 													<option value="Florista">Florista</option>
-													<option value="Convidado especial">Convidado especial</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Sobre</label>
-                                                <textarea class="form-control rounded" type="text"  name="padrinho_descricao"></textarea>
+                                                <label class="control-label">Sobre (No máximo 200 caracteres)</label>
+                                                <textarea class="form-control rounded" type="text"  name="padrinho_descricao" maxlength="200"></textarea>
                                             </div>
 
                                             <div class="form-group">

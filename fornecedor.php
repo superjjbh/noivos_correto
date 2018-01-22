@@ -211,7 +211,7 @@ $pagina->getBlog();
         <!-- Custom  -->
         <script type="text/javascript" src="js/custom.js"></script>
         <script>
-            $('#equipe').addClass('active');
+            $('#fornecedor').addClass('active');
         </script>
     </body>
 </html>

@@ -49,7 +49,7 @@
 				
 					<li class="sep"></li>
                     <li class="primary"> 
-                        <a href="fornecedor/" class="firstLevel last" id="equipe">Fornecedores</a>
+                        <a href="fornecedor/" class="firstLevel last" id="fornecedor">Fornecedores</a>
                     </li>
 				
                 <?php if ($contato->modulo9_status == 1): ?>
