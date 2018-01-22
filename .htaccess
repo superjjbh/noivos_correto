@@ -32,6 +32,7 @@ RewriteRule ^contato([a-zA-Z0-9-_/]+)/?$ contato.php?pg=$1 [L,QSA]
 RewriteRule ^sobre([a-zA-Z0-9-_/]+)/?$ sobre.php?pg=$1 [L,QSA]
 RewriteRule ^equipe([a-zA-Z0-9-_/]+)/?$ equipe.php?pg=$1 [L,QSA]
 RewriteRule ^depoimento([a-zA-Z0-9-_/]+)/?$ depoimento.php?pg=$1 [L,QSA]
+RewriteRule ^fornecedor([a-zA-Z0-9-_/]+)/?$ fornecedor.php?pg=$1 [L,QSA]
 
 
 
@@ -67,6 +68,10 @@ RewriteRule ^admin/slide([a-zA-Z0-9-_/]+)/?$ admin/slide.php?pg=$1 [L,QSA]
 RewriteRule ^admin/depoimentos([a-zA-Z0-9-_/]+)/?$ admin/depoimento.php?pg=$1 [L,QSA]
 RewriteRule ^admin/depoimento/novo([a-zA-Z0-9-_/]+)/?$ admin/depoimento_novo.php?pg=$1 [L,QSA]
 RewriteRule ^admin/depoimento/editar/([a-zA-Z0-9-_/]+)/?$ admin/depoimento_editar.php?id=$1 [L,QSA]
+RewriteRule ^admin/fornecedor/novo([a-zA-Z0-9-_/]+)/?$ admin/fornecedor_novo.php?pg=$1 [L,QSA]
+RewriteRule ^admin/fornecedor/editar/([a-zA-Z0-9-_/]+)/?$ admin/fornecedor_editar.php?id=$1 [L,QSA]
+RewriteRule ^admin/fornecedor([a-zA-Z0-9-_/]+)/?$ admin/fornecedor.php?pg=$1 [L,QSA]
+
 #admin
 
 

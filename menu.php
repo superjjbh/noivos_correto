@@ -47,6 +47,11 @@
                     </li>
                 <?php endif; ?>
 				
+					<li class="sep"></li>
+                    <li class="primary"> 
+                        <a href="fornecedor/" class="firstLevel last" id="equipe">Fornecedores</a>
+                    </li>
+				
                 <?php if ($contato->modulo9_status == 1): ?>
                     <li class="sep"></li>
                     <li class="primary">
@@ -55,7 +60,7 @@
                 <?php endif; ?>
 					<li class="sep"></li>
                     <li class="primary"> 
-                        <a href="app/app-joao-maria.apk" class="firstLevel last" id="equipe">Baixe o App</a>
+                        <a href="app/app-joao-maria.apk" class="firstLevel last" id="equipe">App</a>
                     </li>
 
             </ul>

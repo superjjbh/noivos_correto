@@ -80,6 +80,17 @@ $status0 = new Comment();
                 <li class="listarpadrinho"><a href="padrinho/">Listar Padrinhos/Dama...</a></li>
             </ul>
         </li>
+        <li class="submenu fornecedornovo listarfornecedor">
+            <a href="javascript:void(0);">
+                <span class="icon"><i class="fa fa-truck"></i></span>
+                <span class="text">Nossos Fornecedores</span>
+                <span class="arrow"></span>
+            </a>
+            <ul>
+                <li class="fornecedornovo"><a href="fornecedor/novo/">Novo Fornecedor</a></li>
+                <li class="listarfornecedor"><a href="fornecedor/">Listar Fornecedores</a></li>
+            </ul>
+        </li>
         <li class="submenu blognovo listarblog categoria blogeditar comentario">
             <a href="javascript:void(0);">
                 <span class="icon"><i class="fa fa-cart-plus"></i></span>

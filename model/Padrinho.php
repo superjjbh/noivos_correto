@@ -56,5 +56,21 @@ class Padrinho extends Controle {
     public function JSON() {
         $this->getJSON("padrinho", "padrinho_id = '$this->padrinho_id'");
     }
+	
+    public function getPadrinhosNoiva() {
+        $this->select("padrinho", "", "*", "", "WHERE padrinho_subtitulo = 'Padrinhos da Noiva'", "");
+    }
+	
+    public function getPadrinhosNoivo() {
+        $this->select("padrinho", "", "*", "", "WHERE padrinho_subtitulo = 'Padrinhos do Noivo'", "");
+    }
+	
+    public function getDamas() {
+        $this->select("padrinho", "", "*", "", "WHERE padrinho_subtitulo = 'Dama' OR padrinho_subtitulo = 'Pajem' OR padrinho_subtitulo = 'Florista'", "");
+    }
+	
+    public function getPajem() {
+        $this->select("padrinho", "", "*", "", "WHERE padrinho_subtitulo = 'Pajem'", "");
+    }
 
 }

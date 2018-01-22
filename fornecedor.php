@@ -98,10 +98,10 @@ $pagina->getBlog();
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h1>Nossos Padrinhos</h1>
+                                <h1>Nossos Fornecedores</h1>
                                 <ul class="breadcrumb visible-md visible-lg">
                                     <li><a href="home/"><?= stripslashes($menu->modulo2_nome) ?></a></li>
-                                    <li class="active">Nossos Padrinhos</li>
+                                    <li class="active">Nossos Fornecedores</li>
                                 </ul>
                             </div>
                         </div>
@@ -116,7 +116,7 @@ $pagina->getBlog();
                                 <div class="mb15">
                                     <div class="col-md-4">
                 <!-- ==============================================
-                 PADRINHOS DA NOIVA
+                 FORNECEDORES
                  =============================================== -->
 
                     <?php 
@@ -125,28 +125,27 @@ $pagina->getBlog();
                     ?>
 
                     <?php 
-                    $padrinho = new Padrinho();
-                    $padrinho->getPadrinhos();
-					$padrinho->getPadrinhosNoiva();
+                    $fornecedor = new Fornecedor();
+                    $fornecedor->getFornecedores();
                     ?>                
-                    <?php if (isset($padrinho->db->data[0])): ?>
+                    <?php if (isset($fornecedor->db->data[0])): ?>
                         <section id="team5" class="pt40 pb40">
                             <div class="container">
                                 <div class="row"> 
                                     <div class="col-md-12 mb40 text-center">
-                                        <h1>Padrinhos da Noiva</h1>
-                                        <h2 class="subTitle">Pessoas muito especiais que escolhemos com todo carinho e amor.</h2>
+                                        <h1>Nossos Fornecedores</h1>
+                                        <h2 class="subTitle">Escolhemos os melhores fornecedores, para que tudo ocorra como a gente sonhou.</h2>
                                     </div>
                                     <section class="col-md-12">
                                         <div class="row mb15">
-                                            <?php foreach ($padrinho->db->data as $e): ?>
+                                            <?php foreach ($fornecedor->db->data as $e): ?>
                                                 <div class="col-md-3 col-sm-6" data-nekoanim="slideInLeft" data-nekodelay="0">
                                                     <article>
-                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->padrinho_imagem ?>" alt="" class="img-responsive"></div>
+                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->fornecedor_imagem ?>" alt="" class="img-responsive"></div>
                                                         <div class="boxContent text-center">
-                                                            <h3><?= stripslashes($e->padrinho_nome) ?></h3>
-                                                            <h4><?= stripslashes($e->padrinho_subtitulo) ?><h4/>
-															<p><?= stripslashes($e->padrinho_descricao) ?></p>
+                                                            <h3><?= stripslashes($e->fornecedor_nome) ?></h3>
+                                                            <h4><?= stripslashes($e->fornecedor_subtitulo) ?><h4/>
+															<p><?= stripslashes($e->fornecedor_descricao) ?></p>
                                                         </div>
                                                     </article>
                                                 </div>
@@ -158,99 +157,8 @@ $pagina->getBlog();
                         </section>
                     <?php endif; ?>
                 <!-- ==============================================
-                                FIM        PADRINHOS DA NOIVA
+                                FIM        FORNECEDORES
                  =============================================== -->
-                <!-- ==============================================
-                 PADRINHOS DO NOIVO
-                 =============================================== -->
-
-                    <?php 
-                    $equipe = new Modulo8();
-                    $equipe->getModulo8();
-                    ?>
-
-                    <?php 
-                    $padrinho2 = new Padrinho();
-                    $padrinho2->getPadrinhos();
-					$padrinho2->getPadrinhosNoivo();
-                    ?>                
-                    <?php if (isset($padrinho->db->data[0])): ?>
-                        <section id="team5" class="pt40 pb40">
-                            <div class="container">
-                                <div class="row"> 
-                                    <div class="col-md-12 mb40 text-center">
-                                        <h1>Padrinhos do Noivo</h1>
-                                        <h2 class="subTitle">Pessoas muito especiais que escolhemos com todo carinho e amor.</h2>
-                                    </div>
-                                    <section class="col-md-12">
-                                        <div class="row mb15">
-                                            <?php foreach ($padrinho2->db->data as $e): ?>
-                                                <div class="col-md-3 col-sm-6" data-nekoanim="slideInLeft" data-nekodelay="0">
-                                                    <article>
-                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->padrinho_imagem ?>" alt="" class="img-responsive"></div>
-                                                        <div class="boxContent text-center">
-                                                            <h3><?= stripslashes($e->padrinho_nome) ?></h3>
-                                                            <h4><?= stripslashes($e->padrinho_subtitulo) ?><h4/>
-															<p><?= stripslashes($e->padrinho_descricao) ?></p>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </section>
-                    <?php endif; ?>
-                <!-- ==============================================
-                                FIM        PADRINHOS DO NOIVO
-                 =============================================== -->
-
-                <!-- ==============================================
-                 DAMAS, PAGEM, FLORISTA
-                 =============================================== -->
-
-                    <?php 
-                    $equipe = new Modulo8();
-                    $equipe->getModulo8();
-                    ?>
-
-                    <?php 
-                    $padrinho3 = new Padrinho();
-                    $padrinho3->getPadrinhos();
-					$padrinho3->getDamas();
-                    ?>                
-                    <?php if (isset($padrinho->db->data[0])): ?>
-                        <section id="team5" class="pt40 pb40">
-                            <div class="container">
-                                <div class="row"> 
-                                    <div class="col-md-12 mb40 text-center">
-                                        <h1>Dama, Pagem e Florista</h1>
-                                        <h2 class="subTitle">Pessoas muito especiais que escolhemos com todo carinho e amor.</h2>
-                                    </div>
-                                    <section class="col-md-12">
-                                        <div class="row mb15">
-                                            <?php foreach ($padrinho3->db->data as $e): ?>
-                                                <div class="col-md-3 col-sm-6" data-nekoanim="slideInLeft" data-nekodelay="0">
-                                                    <article>
-                                                        <div><img src="thumb.php?w=320&h=320&zc=0&src=images/team/<?= $e->padrinho_imagem ?>" alt="" class="img-responsive"></div>
-                                                        <div class="boxContent text-center">
-                                                            <h3><?= stripslashes($e->padrinho_nome) ?></h3>
-                                                            <h4><?= stripslashes($e->padrinho_subtitulo) ?><h4/>
-															<p><?= stripslashes($e->padrinho_descricao) ?></p>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </section>
-                    <?php endif; ?>
-                <!-- ==============================================
-                                FIM        DAMAS, PAGEM, FLORISTA
-                 =============================================== -->				 				 
 									
 																		<!-- AddToAny BEGIN -->
 									

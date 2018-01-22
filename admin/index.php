@@ -155,6 +155,15 @@ $contato->getContato();
                                 </div>
                             </div>
                         </div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="mini-stat clearfix bg-twitter rounded">
+                                <span class="mini-stat-icon"><i class="fa fa-truck fg-bitbucket"></i></span>
+                                <div class="mini-stat-info">
+                                    <span><?= $site->getCount('fornecedor') ?></span>
+                                    Fornecedores
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="mini-stat clearfix bg-googleplus rounded">
                                 <span class="mini-stat-icon"><i class="fa fa-picture-o  fg-bitbucket"></i></span>

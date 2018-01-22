@@ -8,16 +8,13 @@ if (!isset($_SESSION['LOGADO']) || $_SESSION['LOGADO'] == FALSE) {
 $site = new Site();
 $site->getMeta();
 
-$padrinho_id = intval($_GET['id']);
-$padrinho = new Padrinho();
-$padrinho->padrinho_id = $padrinho_id;
-//$padrinho->db = new DB;
-$padrinho->getPadrinho();
+$area = new Area();
+$area->getAreas();
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="pt"> <!--<![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 
     <!-- START @HEAD -->
     <head>
@@ -33,8 +30,8 @@ $padrinho->getPadrinho();
         <!--/ END FAVICONS -->
 
         <!-- START @FONT STYLES -->
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
-        <link href='//fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
         <!--/ END FONT STYLES -->
 
         <!-- START @GLOBAL MANDATORY STYLES -->
@@ -65,7 +62,6 @@ $padrinho->getPadrinho();
         <script src="./assets/js/respond.min.js"></script>
         <![endif]-->
         <!--/ END IE SUPPORT -->
-		
     </head>
     <!--/ END HEAD -->
 
@@ -92,7 +88,7 @@ $padrinho->getPadrinho();
 
                 <!-- Start page header -->
                 <div class="header-content">
-                    <h2><i class="fa fa-users"></i>  <span>Padrinhos, damas, florista e pajem</span></h2>
+                    <h2><i class="fa fa-users"></i>  <span>Fornecedores</span></h2>
                     <div class="breadcrumb-wrapper hidden-xs">
                         <span class="label">Você está em :</span>
                         <ol class="breadcrumb">
@@ -102,7 +98,7 @@ $padrinho->getPadrinho();
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Padrinhos, damas, florista e pajem</a>
+                                <a href="#">Fornecedores</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                         </ol>
@@ -118,46 +114,34 @@ $padrinho->getPadrinho();
                         <div class="col-md-12">
                             <div class="panel rounded shadow">
                                 <div class="panel-sub-heading">
-                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Editar Padrinhos, damas, florista e pajem</strong></p></div>
+                                    <div class="callout callout-info" style="padding-top: 19px;"><p><strong>Cadastrar Fornecedor</strong></p></div>
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="panel-body no-padding">
-                                    <form enctype="multipart/form-data" method="post" action="padrinho_fn.php?acao=atualizar">
+                                    <form enctype="multipart/form-data" method="post" action="fornecedor_fn.php?acao=incluir">
                                         <div class="form-body">
 
                                             <div class="form-group">
                                                 <label class="control-label">Nome</label>
-                                                <input class="form-control rounded" type="text" id="padrinho_nome"  name="padrinho_nome" required value="<?= stripslashes($padrinho->padrinho_nome) ?>" />
+                                                <input class="form-control rounded" type="text" id="fornecedor_nome"  name="fornecedor_nome" required />
                                             </div>
 
                                             <div class="form-group">
-											<h4 class="media-heading text-capitalize"> Categoria: <b><?= stripslashes($padrinho->padrinho_subtitulo) ?></b> </h4>
-                                                <br>
-                                                <label class="control-label">Categoria</label>
-                                                <select class="form-control input-sm mb-15 rounded" id="padrinho_subtitulo" name="padrinho_subtitulo" style="text-transform: uppercase;" required>
-                                                    <option value="">Confirme a Categoria, mesmo que seja a atual...</option>
-                                                    <option value="Padrinhos da Noiva">Padrinhos da Noiva</option>
-													<option value="Padrinhos do Noivo">Padrinhos do Noivo</option>
-													<option value="Pajem">Pajem</option>
-													<option value="Dama">Dama</option>
-													<option value="Florista">Florista</option>
-													<option value="Convidado especial">Convidado especial</option>
-                                                </select>
+                                                <span class="pull-right"><i class="fa fa-exclamation-triangle"></i> Exemplo: Ornamentação, Músicos</span>
+                                                <label class="control-label">Tipo de Fornecedor</label>
+                                                <input class="form-control rounded" type="text" id="fornecedor_subtitulo"  name="fornecedor_subtitulo" required />
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Sobre (No máximo 200 caracteres)</label>
-                                                <textarea class="form-control rounded" type="text"  id="padrinho_descricao" name="padrinho_descricao" data-ls-module="charCounter" maxlength="200" ><?= stripslashes($padrinho->padrinho_descricao) ?></textarea>
-                                                <br>
-												<input type="hidden" id="padrinho_id"  name="padrinho_id" value="<?= $padrinho->padrinho_id ?>">
+                                                <label class="control-label">Sobre o fornecedor (No máximo 200 caracteres)</label>
+                                                <textarea class="form-control rounded" type="text"  name="fornecedor_descricao" maxlength="200"></textarea>
                                             </div>
-
 
                                             <div class="form-group">
                                                 <label class="control-label">Foto</label>
                                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                                     <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
-                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="padrinho_imagem" name="padrinho_imagem"></span>
+                                                    <span class="input-group-addon btn btn-success btn-file"><span class="fileinput-new">Selecione a Imagem</span><span class="fileinput-exists">Mudar de Imagem</span><input type="file" id="fornecedor_imagem" name="fornecedor_imagem"></span>
                                                     <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remover</a>
                                                 </div>
                                             </div>
@@ -165,7 +149,7 @@ $padrinho->getPadrinho();
 
                                             <div class="form-footer">
                                                 <div class="pull-right">
-                                                    <button class="btn btn-primary" type="submit">Atualizar</button>
+                                                    <button class="btn btn-primary" type="submit">Cadastrar</button>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -208,14 +192,13 @@ $padrinho->getPadrinho();
 
         <!-- START @PAGE LEVEL SCRIPTS -->
         <script src="./assets/js/apps.js"></script>
-        <script src="./assets/js/blankon.form.js"></script>
+        <script src="./assets/js/dark.form.js"></script>
         <!--/ END PAGE LEVEL SCRIPTS -->
         <!--/ END JAVASCRIPT SECTION -->
-		
 
     </body>
     <script>
-        $('.padrinhonovo').addClass('active');
+        $('.fornecedornovo').addClass('active');
 
         $(".sound").on("click", function () {
             ion.sound.play("button_push.mp3");
